@@ -1,6 +1,6 @@
 <?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
 /* КОМПОНЕНТ СТРАНИЦЫ */
-$alias = $_GET[alias];
+//$alias = $_GET[alias];
 // $query = "SELECT * FROM wx_pages WHERE page_alias='home' LIMIT 1";
 // $db->run($query);
 // $db->row();
@@ -14,8 +14,8 @@ $alias = $_GET[alias];
 // $s_desc = $db->data[page_s_desc];
 // $component = $db->data[page_content];
 // ЕСЛИ СТРАНИЦЫ НЕ СУЩЕСТВУЕТ
-if (!$id) {
-header("HTTP/1.1 404 Not Found");
-$component = "ОШИБКА 404! Данной страницы не существует";
-}
+// if (!$id) {
+// header("HTTP/1.1 404 Not Found");
+// $component = "ОШИБКА 404! Данной страницы не существует";
+// }
 //$db->stop();
