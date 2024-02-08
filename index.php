@@ -10,10 +10,10 @@ $db->connect();
 // ГЛАВНЫЙ КОНТРОЛЛЕР
 switch ($_GET['option']) {
 case "page":
-include($_SERVER['DOCUMENT_ROOT']."/includes/pages/page.php");
+include($_SERVER['DOCUMENT_ROOT']."/core/pages/page.php");
 break;
 default:
-include($_SERVER['DOCUMENT_ROOT']."/includes/pages/home.php");
+include($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
 break;
 }
 
