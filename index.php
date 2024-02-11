@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+
+session_start();
 define("INDEX", ""); // УСТАНОВКА КОНСТАНТЫ ГЛАВНОГО КОНТРОЛЛЕРА
 
 require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php"); // ПОДКЛЮЧЕНИЕ ЯДРА
@@ -18,4 +20,4 @@ break;
 }
 
 include ($_SERVER['DOCUMENT_ROOT']."/template.php");
-$db->close();
+$db->close();?>

@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
-<?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
+<?php
+
+defined('INDEX') OR die('Прямой доступ к странице запрещён!');
 
 // MYSQL
 class MyDB
@@ -29,10 +31,11 @@ mysqli_close($this->link);
 }
 
 function run($query) {
-$this->query = $query;
-$this->result = mysqli_query($this->query, $this->link);
-$this->err = mysqli_error();
+    $this->query = $query;
+    $this->result = mysqli_query($this->link, $this->query); // Исправлен порядок аргументов
+    $this->err = mysqli_error($this->link);
 }
+
 function row() {
 $this->data = mysqli_fetch_assoc($this->result);
 }
