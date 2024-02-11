@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-.main-menu ul, ul > ul{
+.app-nav ul, ul > ul{
     list-style: none;
     margin: 0;
 }
@@ -43,7 +43,11 @@
 }
 
 .main-menu ul li{
-    padding: 22px 15px;
+    padding: 22px 0;
+}
+
+.main-menu ul li a{
+    padding: 0 15px;
 }
 
 .secondary-menu ul:first-of-type li:nth-child(2){
@@ -84,5 +88,5 @@
 }
 
 .app-nav ul li:hover > ul{
-    display: initial !important;
+    display: block !important;
 }
