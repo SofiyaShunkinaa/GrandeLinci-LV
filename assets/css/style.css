@@ -82,3 +82,7 @@
 .main-menu ul li ul li ul{
     left: 105px;
 }
+
+.app-nav ul li:hover > ul{
+    display: initial !important;
+}
