@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
 }
-
 .main-menu ul, ul > ul{
     list-style: none;
 }
@@ -10,8 +9,29 @@
 .app-nav{
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .secondary-menu{
     background: var(--a-gray);
+    font-weight: 500;
+}
+
+.main-menu{
+    background: var(--a-blue);
+}
+
+.main-menu .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secondary-menu ul:first-of-type{
+    display: grid;
+    grid-template-columns: repeat(3, auto) 1fr;
+}
+
+.secondary-menu li:last-of-type{
+    justify-self: end;
 }
