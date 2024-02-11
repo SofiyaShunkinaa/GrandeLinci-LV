@@ -15,6 +15,7 @@
 .secondary-menu{
     background: var(--a-gray);
     font-weight: 500;
+    padding: 9px 0;
 }
 
 .main-menu{
@@ -25,6 +26,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 22px;
+    padding-top: 22px;
 }
 
 .secondary-menu ul:first-of-type{
@@ -34,4 +37,41 @@
 
 .secondary-menu li:last-of-type{
     justify-self: end;
+}
+
+.main-menu ul:first-of-type{
+    display: flex;
+}
+
+.main-menu ul:first-of-type li{
+    padding: 0 15px;
+}
+
+.secondary-menu ul:first-of-type li:nth-child(2){
+    padding: 0 54px;
+}
+
+.app-nav ul ul{
+    display: none !important;
+}
+
+.app-nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.app-nav a:hover{
+    text-decoration: underline;
+    transition: 1s;
+}
+
+.main-menu ul ul{
+    position: absolute;
+    width: 105px;
+    background: var(--a-blue);
+    border-radius: 0 0 13px 13px;
+}
+
+.main-menu ul li ul li ul{
+    left: 105px;
 }
