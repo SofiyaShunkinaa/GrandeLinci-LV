@@ -27,7 +27,7 @@
                     foreach ($items as $item) {
                         if(preg_match('/secondary/', $item['custom_class'])) {
                             if ($item['parent_id'] == $parentId) {
-                                $html .= "<li>{$item['name']}";
+                                $html .= "<li><a href='{$item['link']}'>{$item['name']}</a>";
                                 $html .= buildList($items, $item['id']);
                                 $html .= "</li>";
                             }
@@ -72,7 +72,7 @@
                 foreach ($items as $item) {
                     if(!preg_match('/secondary/', $item['custom_class'])) {
                         if ($item['parent_id'] == $parentId) {
-                            $html .= "<li>{$item['name']}";
+                            $html .= "<li><a href='{$item['link']}'>{$item['name']}</a>";
                             $html .= buildList1($items, $item['id']);
                             $html .= "</li>";
                         }
