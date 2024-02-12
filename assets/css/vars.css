@@ -1,9 +1,12 @@
 :root{
+
     --a-white: #FAFAFA;
     --a-lightblue: #93DDFD;
     --a-blue: #56CAFC;
     --a-dark-blue: #2D73DC;
     --a-gray: #555;
+
+    --fs-footer-logo-lg: 40px;
 
 }
 
