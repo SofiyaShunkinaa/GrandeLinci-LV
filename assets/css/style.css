@@ -90,3 +90,36 @@
 .app-nav ul li:hover > ul{
     display: block !important;
 }
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    color: white;
+}
+
+.f-logo-rectangle{
+    width: 86px;
+    height: 10px;
+    background: white;
+}
+
+.main-footer__logo{
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+.main-footer{
+    background: var(--a-blue);
+}
+
+.secondary-footer{
+    background: var(--a-gray);
+}
+
+.secondary-footer__content{
+    padding: 10px 0;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
