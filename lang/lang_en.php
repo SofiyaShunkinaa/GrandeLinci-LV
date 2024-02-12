@@ -2,7 +2,7 @@
 $Lang = array(
     "Footer" 	=> array(
         "logo" => "Grande<b>Linci</b>",
-        "copyrigth" => "@copyrigth",
+        "copyright" => "@copyrigth",
         "madeby" => "Made by Sofiya"
     ),
     "header_title" => "Easy php localization",
