@@ -1,6 +1,9 @@
 <footer>
     <div class="main-footer">
-        <div class="main-footer__logo"><?php echo $Lang['Footer']['logo']; ?></div>
+        <div class="main-footer__logo">
+            <?php echo $Lang['Footer']['logo']; ?>
+            <div class="f-logo-rectangle"></div>
+        </div>
     </div>
 
     <div class="secondary-footer">
