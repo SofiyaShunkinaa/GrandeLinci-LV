@@ -1,10 +1,13 @@
 <?php 
 
 session_start();
-define("INDEX", ""); // УСТАНОВКА КОНСТАНТЫ ГЛАВНОГО КОНТРОЛЛЕРА
+// SETTING THE MAIN CONTROLLER CONSTANT
+define("INDEX", "");
 
-require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php"); // ПОДКЛЮЧЕНИЕ ЯДРА
+// CONNECTING THE CORE
+require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php");
 
+// LANGUAGE MANAGING
 $LangArray = array("ru", "en", "lv");
 $DefaultLang = "ru";
 if(@$_SESSION['NowLang']) {
@@ -15,6 +18,7 @@ if(@$_SESSION['NowLang']) {
 else {
     $_SESSION['NowLang'] = $DefaultLang;
 }
+
 $language = addslashes($_GET['lang']);
 if($language) {
     if(!in_array($language, $LangArray)) {
@@ -27,11 +31,11 @@ if($language) {
 $CurentLang = addslashes($_SESSION['NowLang']);
 include_once ("lang/lang_".$CurentLang.".php");
 
-// ПОДКЛЮЧЕНИЕ К БД
+// CONNECTING TO THE DATABASE
 $db = new MyDB();
 $db->connect();
 
-// ГЛАВНЫЙ КОНТРОЛЛЕР
+// MAIN CONTROLLER
 switch ($_GET['option']) {
 case "page":
 include($_SERVER['DOCUMENT_ROOT']."/core/pages/page.php");
