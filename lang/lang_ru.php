@@ -24,7 +24,8 @@ $Lang = array(
             13 => "karoleinga@gmail.com",
             14 => "RU",
             15 => "LV",
-            16 => "EN"
+            16 => "EN",
+            17 => 'lang'
         )
 
     ),
