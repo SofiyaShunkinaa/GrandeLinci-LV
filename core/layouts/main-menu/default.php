@@ -28,7 +28,13 @@
                     foreach ($items as $item) {
                         if(preg_match('/secondary/', $item['custom_class'])) {
                             if ($item['parent_id'] == $parentId) {
-                                $html .= "<li><a href='{$item['link']}'>{$Lang['Header']['secondary'][$item['id']]}</a>";
+                                if(preg_match('/has-img/', $item['custom_class'])){
+                                    $html .= "<li class='{$item['custom_class']}'><a href='/?lang={$item['link']}'><img src='{$item['img_path']}'>{$Lang['Header']['secondary'][$item['id']]}</a>";
+                                }
+                                else{
+                                    $html .= "<li class='{$item['custom_class']}'><a href='{$item['link']}'>{$Lang['Header']['secondary'][$item['id']]}</a>";
+
+                                }
                                 $html .= buildList($items, $item['id']);
                                 $html .= "</li>";
                             }
