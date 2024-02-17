@@ -23,11 +23,12 @@
                 }
 
                 function buildList($items, $parentId = 0) {
+                    global $Lang;
                     $html = "<ul>";
                     foreach ($items as $item) {
                         if(preg_match('/secondary/', $item['custom_class'])) {
                             if ($item['parent_id'] == $parentId) {
-                                $html .= "<li><a href='{$item['link']}'>".$item['name']."</a>";
+                                $html .= "<li><a href='{$item['link']}'>{$Lang['Header']['secondary'][$item['id']]}</a>";
                                 $html .= buildList($items, $item['id']);
                                 $html .= "</li>";
                             }
