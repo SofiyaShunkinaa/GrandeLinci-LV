@@ -3,7 +3,9 @@
         <div class="main-footer__logo">
 
             <div class="f-logo-text">
-                <?php echo $Lang['Footer']['logo']; ?>
+                <a href="/?option=home">
+                    <?php echo $Lang['Footer']['logo']; ?>
+                </a>
             </div>
 
             <div class="f-logo-rectangle"></div>
