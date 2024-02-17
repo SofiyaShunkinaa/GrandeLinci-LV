@@ -1,7 +1,6 @@
 <?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
 
 /* PAGE COMPONENT */
-$alias = $_GET['alias'];
 $query = "SELECT * FROM pages WHERE page_alias='home' LIMIT 1";
 $db->run($query);
 $db->row();
