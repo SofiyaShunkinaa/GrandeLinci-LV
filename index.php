@@ -35,15 +35,6 @@ include_once ("lang/lang_".$CurentLang.".php");
 $db = new MyDB();
 $db->connect();
 
-// MAIN CONTROLLER
-switch ($_GET['option']) {
-case "page":
-include($_SERVER['DOCUMENT_ROOT']."/core/pages/page.php");
-break;
-default:
-include($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
-break;
-}
-
 include ($_SERVER['DOCUMENT_ROOT']."/template.php");
-$db->close();?>
+$db->close();
+
