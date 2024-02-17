@@ -10,7 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php");
 // LANGUAGE MANAGING
 $LangArray = array("ru", "en", "lv");
 $DefaultLang = "ru";
-$_GET['lang'] = "ru";
+
 if(@$_SESSION['NowLang']) {
     if(!in_array($_SESSION['NowLang'], $LangArray)) {
         $_SESSION['NowLang'] = $DefaultLang;
