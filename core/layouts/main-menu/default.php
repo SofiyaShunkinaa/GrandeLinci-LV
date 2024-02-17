@@ -1,11 +1,11 @@
 <header>
+
 <nav>
     <div class="app-nav">
         <div class="secondary-menu">
             <div class="container">
                 <?php
                 session_start();
-
                 $db = new MyDB();
                 $db->connect();
 
@@ -27,7 +27,7 @@
                     foreach ($items as $item) {
                         if(preg_match('/secondary/', $item['custom_class'])) {
                             if ($item['parent_id'] == $parentId) {
-                                $html .= "<li><a href='{$item['link']}'>{$item['name']}</a>";
+                                $html .= "<li><a href='{$item['link']}'>".$item['name']."</a>";
                                 $html .= buildList($items, $item['id']);
                                 $html .= "</li>";
                             }
@@ -50,7 +50,6 @@
             </div>
             <?php
             session_start();
-
             $db = new MyDB();
             $db->connect();
 
@@ -68,11 +67,12 @@
             }
 
             function buildList1($items, $parentId = 0) {
+                global $Lang;
                 $html = "<ul>";
                 foreach ($items as $item) {
                     if(!preg_match('/secondary/', $item['custom_class'])) {
                         if ($item['parent_id'] == $parentId) {
-                            $html .= "<li><a href='{$item['link']}'>{$item['name']}</a>";
+                            $html .= "<li><a href='{$item['link']}'>{$Lang['Header']['main_menu'][$item['id']]}</a>";
                             $html .= buildList1($items, $item['id']);
                             $html .= "</li>";
                         }
