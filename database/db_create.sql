@@ -57,3 +57,11 @@ CREATE TABLE booking_request
  question3 TEXT,  
  question4 TEXT, 
  FOREIGN KEY (id_kitten) REFERENCES kittens (id));
+
+CREATE TABLE pages(
+                      page_id SMALLINT PRIMARY KEY AUTO_INCREMENT,
+                      page_alias VARCHAR(255),
+                      page_meta_d VARCHAR(255),
+                      page_meta_k VARCHAR(255),
+                      page_publish CHAR DEFAULT 'Y'
+)
