@@ -45,7 +45,7 @@
     <div class="main-menu">
         <div class="container">
             <div class="logo">
-                <a href="#">
+                <a href="/?option=home">
                     GrandeLinci LV
                 </a>
             </div>
@@ -73,7 +73,7 @@
                 foreach ($items as $item) {
                     if(!preg_match('/secondary/', $item['custom_class'])) {
                         if ($item['parent_id'] == $parentId) {
-                            $html .= "<li><a href='{$item['link']}'>{$Lang['Header']['main_menu'][$item['id']]}</a>";
+                            $html .= "<li><a href='/?option={$item['link']}'>{$Lang['Header']['main_menu'][$item['id']]}</a>";
                             $html .= buildList1($items, $item['id']);
                             $html .= "</li>";
                         }
@@ -84,6 +84,7 @@
             }
 
             echo buildList1($associativeArray);
+            $db->stop();
             ?>
         </div>
     </div>
