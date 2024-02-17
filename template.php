@@ -1,17 +1,26 @@
+<h1>Main template</h1>
 <?php
-require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/main-menu/default.php");
 
-// MAIN CONTROLLER
 switch ($_GET['option']) {
-    case "page":
-        include($_SERVER['DOCUMENT_ROOT']."/core/pages/page.php");
+    case "about_us":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/about_us.php");
         break;
-    default:
-        include($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
+    case "available_kittens":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/available_kittens.php");
+        break;
+    case "our_cats":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/our_cats.php");
+        break;
+    case "photogallery":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/photogallery.php");
+        break;
+    case "about_breed":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/about_breed.php");
+        break;
+    case "contacts":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/contacts.php");
         break;
 }
-
-require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/footer/default.php");
 
 
 

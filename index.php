@@ -10,6 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php");
 // LANGUAGE MANAGING
 $LangArray = array("ru", "en", "lv");
 $DefaultLang = "ru";
+$_GET['lang'] = "ru";
 if(@$_SESSION['NowLang']) {
     if(!in_array($_SESSION['NowLang'], $LangArray)) {
         $_SESSION['NowLang'] = $DefaultLang;
@@ -35,6 +36,20 @@ include_once ("lang/lang_".$CurentLang.".php");
 $db = new MyDB();
 $db->connect();
 
-include ($_SERVER['DOCUMENT_ROOT']."/template.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/main-menu/default.php");
+
+// MAIN CONTROLLER
+
+switch ($_GET['option']) {
+    case "home":
+        include($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
+        break;
+    default:
+        include($_SERVER['DOCUMENT_ROOT']."/template.php");
+        break;
+}
+
+require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/footer/default.php");
+
 $db->close();
 
