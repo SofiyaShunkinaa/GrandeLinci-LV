@@ -7,6 +7,10 @@ define("INDEX", "");
 // CONNECTING THE CORE
 require_once($_SERVER['DOCUMENT_ROOT']."/config/core.php");
 
+// CONNECTING TO CUSTOMINCLUDES
+require_once($_SERVER['DOCUMENT_ROOT']."/includes/functions.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/includes/variables.php");
+
 // LANGUAGE MANAGING
 $LangArray = array("ru", "en", "lv");
 $DefaultLang = "ru";
