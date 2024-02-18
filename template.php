@@ -1,9 +1,34 @@
 <?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
-$page_name = $_GET['option'];
 
-// IF PAGE NOT EXISTS
-if ($page_name !== "home" or $page_name != "about_us" or $page_name != "about_breed" or $page_name != "available_kittens" or $page_name != "contacts" or $page_name != "our_cats" or $page_name != "photogallery") {
+//CONNECTING TO DB
+$db = new MyDB();
+$db->connect();
+$query = "SELECT page_alias FROM pages";
+$db->run($query);
+$check = 0;
+
+//MAIN PAGE CONTROLLER
+if(!isset($_GET['option']))
+{
+    $page_name = $_SESSION['CurrentPage'];
+    $_GET['option'] = $_SESSION['CurrentPage'];
+}
+else {
+    $page_name = $_GET['option'];
+}
+
+while ($row = $db->fetch()) {
+    if($page_name == $row['page_alias']){
+        $check=1;
+        $_SESSION['CurrentPage'] = $page_name;
+    }
+}
+
+if (!$check) {
     require_once($_SERVER['DOCUMENT_ROOT']."/core/pages/error/page.php");
+}
+if ($page_name == 'home'){
+    require_once($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
 }
 else{
 ?>

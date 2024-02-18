@@ -40,18 +40,11 @@ include_once ("lang/lang_".$CurentLang.".php");
 $db = new MyDB();
 $db->connect();
 
+
+// TEMPLATES INCLUDES
 require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/main-menu/default.php");
 
-// MAIN CONTROLLER
-
-switch ($_GET['option']) {
-    case "home":
-        include($_SERVER['DOCUMENT_ROOT']."/core/pages/home.php");
-        break;
-    default:
-        include($_SERVER['DOCUMENT_ROOT']."/template.php");
-        break;
-}
+include($_SERVER['DOCUMENT_ROOT']."/template.php");
 
 require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/footer/default.php");
 
