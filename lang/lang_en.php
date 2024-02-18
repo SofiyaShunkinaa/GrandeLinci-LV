@@ -233,7 +233,7 @@ The period of maximum physical activity for this breed is in the first five year
             ]
         ),
         404 => array(
-            "content" => "Something went wrong! Try reloading the page or go back to the homepage"
+            "content" => "Something went wrong!<br>Try reloading the page or go back to the homepage"
         )
     ),
 
