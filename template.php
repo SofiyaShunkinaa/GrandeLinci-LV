@@ -1,3 +1,13 @@
+<?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
+$page_name = $_GET['option'];
+
+// IF PAGE NOT EXISTS
+if ($page_name !== "home" or $page_name != "about_us" or $page_name != "about_breed" or $page_name != "available_kittens" or $page_name != "contacts" or $page_name != "our_cats" or $page_name != "photogallery") {
+    require_once($_SERVER['DOCUMENT_ROOT']."/core/pages/error/page.php");
+}
+else{
+?>
+
 <div class="app-head app-head-page">
     <div class="container">
         <div class="a-head">
@@ -44,3 +54,5 @@ switch ($_GET['option']) {
 ?>
 </div>
 
+<?php
+}?>
