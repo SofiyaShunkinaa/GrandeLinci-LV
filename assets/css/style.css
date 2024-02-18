@@ -32,6 +32,7 @@
 .secondary-menu ul:first-of-type{
     display: grid;
     grid-template-columns: repeat(3, auto) 1fr;
+    padding: 0;
 }
 
 .secondary-menu li:last-of-type{
@@ -63,6 +64,10 @@
     color: white;
 }
 
+a{
+    text-decoration: none;
+}
+
 .app-nav a:hover{
     text-decoration: underline;
     transition: 1s;
@@ -91,9 +96,43 @@
     display: block !important;
 }
 
+.app-nav .secondary-menu ul li:hover > ul{
+    display: none !important;
+}
+
+.app-nav .secondary-menu ul li.open > ul{
+    display: flex !important;
+    position: absolute;
+    width: fit-content;
+    top: 30;
+    right: 1;
+    background: var(--a-gray);
+    padding: 19px 14px 23px 14px;
+    border-radius: 0 0 17px 17px;
+    flex-direction: column;
+    gap: 11px;
+    font-weight: 300;
+}
+
+.app-nav .secondary-menu ul li.open > ul a{
+    display: flex;
+    gap: 10px;
+}
+
+.app-nav .secondary-menu ul li.open > ul li{
+    padding: 0;
+}
+
+.app-nav .secondary-menu ul li.open > ul li.active{
+    font-weight: 600;
+}
+
 footer{
     color: white;
-    margin-top: 233px;
+}
+
+.app-main{
+    margin-bottom: 233px;
 }
 
 .f-logo-rectangle{
@@ -389,6 +428,10 @@ img{
     height: 52px;
 }
 
+header img{
+    border-radius: 0;
+}
+
 .subsection-advantages, .subsection-contacts{
     display: flex;
     justify-content: space-between;
@@ -488,4 +531,9 @@ img{
 .app-head-404 p{
     color: var(--a-gray);
     margin-top: 17px;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
 }
