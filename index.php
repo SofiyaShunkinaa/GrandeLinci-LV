@@ -24,7 +24,13 @@ else {
     $_SESSION['NowLang'] = $DefaultLang;
 }
 
-$language = addslashes($_GET['lang']);
+if(!isset($_GET['lang'])){
+    $language = $_SESSION['NowLang'];
+}
+else{
+    $language = addslashes($_GET['lang']);
+}
+
 if($language) {
     if(!in_array($language, $LangArray)) {
         $_SESSION['NowLang'] = $DefaultLang;
