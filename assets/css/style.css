@@ -389,7 +389,7 @@ img{
     height: 52px;
 }
 
-.subsection-advantages{
+.subsection-advantages, .subsection-contacts{
     display: flex;
     justify-content: space-between;
     margin-top: 66px;
@@ -402,6 +402,12 @@ img{
 
 .card-container p{
     color: var(--a-gray);
+}
+
+.card-container p a{
+    text-decoration: none;
+    color: var(--a-gray);
+
 }
 
 .section-ads{
@@ -437,4 +443,22 @@ img{
     left: 0;
     z-index: -1;
     top: 1900;
+}
+
+.page-contacts .card-container p{
+    font-weight: 600;
+}
+
+.map-container{
+    width: 100%;
+    height: 475px;
+    border-radius: 17px;
+    margin-top: 80px;
+}
+
+.page-contacts .bg{
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 1450;
 }
