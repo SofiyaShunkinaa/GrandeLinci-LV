@@ -45,5 +45,6 @@ $Photos = [
         0 => "/assets/images/cat18",
         1 => "/assets/images/cat10",
         2 => "/assets/images/cat19"
-    ]
+    ],
+    404 => "/assets/images/404-cat"
 ];
