@@ -208,22 +208,26 @@ The period of maximum physical activity for this breed is in the first five year
                     [
                         "icon" => "/assets/images/icons/phone.svg",
                         "title" => "Phone",
-                        "text" => "+371 25 614 622"
+                        "text" => "+371 25 614 622",
+                        "link" => "tel:+37125614622"
                     ],
                     [
                         "icon" => "/assets/images/icons/letter.svg",
                         "title" => "Email",
-                        "text" => "karoleinga@gmail.com"
+                        "text" => "karoleinga@gmail.com",
+                        "link" => "mailto:karoleinga@gmail.com"
                     ],
                     [
                         "icon" => "/assets/images/icons/facebook.svg",
                         "title" => "Social Media",
-                        "text" => "@GrandeLinciLV"
+                        "text" => "@GrandeLinciLV",
+                        "link" => "https://m.facebook.com/p/Grande-Linci-LV-100090577746671/"
                     ],
                     [
                         "icon" => "/assets/images/icons/home.svg",
                         "title" => "Address",
-                        "text" => "Riga, Latvia"
+                        "text" => "Riga, Latvia",
+                        "link" => ""
                     ]
                 ]
             ]
