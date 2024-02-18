@@ -16,8 +16,9 @@
         <div class="container">
             <div class="secondary-footer__content">
                 <span><?php echo $Lang['Footer']['copyright']; ?></span>
-                <span><?php echo $Lang['Footer']['madeby']; ?></span>
+                <span><a href="https://github.com/SofiyaShunkinaa"><?php echo $Lang['Footer']['madeby']; ?></a></span>
             </div>
         </div>
     </div>
 </footer>
+<script src="/assets/js/script.js"></script>
