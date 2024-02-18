@@ -462,3 +462,30 @@ img{
     left: 0;
     top: 1450;
 }
+
+.app-head-404{
+    height: 610px;
+    background-image: url("/assets/images/404-bg.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+.app-head-404 h1{
+    font-size: 128px !important;
+    color: var(--a-blue);
+}
+.title-404{
+    width: fit-content;
+}
+
+.title-rect-404{
+    height: 10px;
+    width: 100%;
+    background: var(--a-dark-blue);
+}
+
+.app-head-404 p{
+    color: var(--a-gray);
+    margin-top: 17px;
+}
