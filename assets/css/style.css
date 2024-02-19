@@ -727,3 +727,24 @@ footer a{
     display: flex;
     flex-direction: column;
 }
+
+.subsection-articles{
+    display: flex;
+}
+
+.page-home .article-container{
+    flex-direction: column;
+}
+
+.page-home .article-container:nth-of-type(2){
+    align-items: end;
+    text-align: end;
+}
+
+.page-home .article-container img{
+    margin-top: 71px;
+}
+
+.page-home .article-container:nth-of-type(2) img{
+    margin: 0 71px 61px 71px;
+}
