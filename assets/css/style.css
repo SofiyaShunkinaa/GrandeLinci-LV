@@ -48,7 +48,7 @@
 }
 
 .main-menu ul li a{
-    padding: 0 15px;
+    margin: 0 15px;
 }
 
 .secondary-menu ul:first-of-type li:nth-child(2){
@@ -62,15 +62,19 @@
 .app-nav a{
     text-decoration: none;
     color: white;
+    background-image: linear-gradient(white, white);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .5s;
 }
 
 a{
     text-decoration: none;
 }
 
-.app-nav a:hover{
-    text-decoration: underline;
-    transition: 1s;
+.app-nav .main-menu ul li a:hover{
+    background-size: 100% 2px;
 }
 
 .main-menu ul li ul{
@@ -98,6 +102,8 @@ a{
 
 .app-nav .secondary-menu ul li:hover > ul{
     display: none !important;
+    opacity: 0;
+    transition: background .1s, opacity .5s .3s;
 }
 
 .app-nav .secondary-menu ul li.open > ul{
@@ -112,6 +118,12 @@ a{
     flex-direction: column;
     gap: 11px;
     font-weight: 300;
+    opacity: 1;
+    transition: background .6s .1s, opacity .5s;
+}
+
+.app-nav a:hover, footer a:hover{
+    color: white;
 }
 
 .app-nav .secondary-menu ul li.open > ul a{
@@ -406,14 +418,18 @@ img{
     display: flex;
 }
 
-.history-container .title-container{
+.history-container .title-container, .section-preview .title-container{
     margin: 0;
     align-items: start;
     margin-bottom: 42px;
 }
 
-.history-container p{
+.history-container p, .section-article:nth-of-type(even) p{
     padding-right: 15px;
+}
+
+.section-article:nth-of-type(odd) p{
+    padding-left: 15px;
 }
 
 .card-container{
@@ -536,4 +552,97 @@ header img{
 footer a{
     text-decoration: none;
     color: white;
+}
+
+.article-container{
+    display: flex;
+    margin-top: 120px;
+}
+
+.article-container p{
+    color: var(--a-gray);
+}
+
+.title-container h3{
+    color: var(--a-blue);
+    font-size: var(--h3-font-size);
+}
+
+.section-preview .title-container{
+    margin-bottom: 16px;
+}
+
+.section-preview ul a{
+    color: var(--a-gray);
+    text-decoration: none;
+    transition: textdecoration .5s;
+    font-weight: 400;
+}
+
+.section-preview ul a:hover{
+    text-decoration: underline;
+}
+
+.section-preview .images-container{
+    margin-top: 95px;
+}
+
+.section-preview ul{
+    padding-left: 1rem;
+}
+
+.page-about_breed .bg-1{
+    position: absolute;
+    z-index: -2;
+    right: 0;
+    top: 550;
+}
+
+.page-about_breed .bg-2{
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    top: 2150;
+}
+
+.page-about_breed .bg-3{
+    position: absolute;
+    z-index: -1;
+    right: 200;
+    top: 600;
+}
+
+.page-about_breed .bg-4{
+    position: absolute;
+    z-index: -1;
+    left: 300;
+    top: 1450;
+}
+
+.page-about_breed .bg-5{
+    position: absolute;
+    z-index: -1;
+    right: 300;
+    top: 2150;
+}
+
+.page-about_breed .bg-6{
+    position: absolute;
+    z-index: -1;
+    left: 300;
+    top: 2900;
+}
+
+.page-about_breed .bg-7{
+    position: absolute;
+    z-index: -1;
+    right: 300;
+    top: 3650;
+}
+
+.page-about_breed .bg-8{
+    position: absolute;
+    z-index: -1;
+    left: 300;
+    top: 4350;
 }
