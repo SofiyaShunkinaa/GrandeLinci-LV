@@ -266,6 +266,13 @@ The period of maximum physical activity for this breed is in the first five year
         "about_breed" => [ "name" => " About breed", "link" => "/?option=about_breed" ],
         "about_us" => [ "name" => " About us", "link" => "/?option=about_us" ],
         "contacts" => [ "name" => " Contacts", "link" => "/?option=contacts" ]
+    ],
+
+    "Buttons" => [
+        "choose_kit" => "Choose kitten",
+        "learn_more" => "Learn more",
+        "buy_me" => "Buy me",
+        "view_more" => "View more"
     ]
 
 );
