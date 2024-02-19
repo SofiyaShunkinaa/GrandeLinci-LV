@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/vars.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="/includes/splide-4.1.3/dist/css/splide.min.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 
 <?php
 
@@ -10,7 +11,7 @@ defined('INDEX') OR die('Прямой доступ к странице запр�
 class MyDB
 {
 var $dblogin = "root"; 
-var $dbpass = "root"; 
+var $dbpass = "root";
 var $db = "grandelinci"; 
 var $dbhost="localhost";
 
@@ -34,7 +35,7 @@ mysqli_close($this->link);
 
 function run($query) {
     $this->query = $query;
-    $this->result = mysqli_query($this->link, $this->query); // Исправлен порядок аргументов
+    $this->result = mysqli_query($this->link, $this->query); // fixed argument order
     $this->err = mysqli_error($this->link);
 }
 
@@ -42,11 +43,20 @@ function row() {
 $this->data = mysqli_fetch_assoc($this->result);
 }
 function fetch() {
-while ($this->data = mysqli_fetch_assoc($this->result)) {
-$this->fetch = $this->data;
-return $this->fetch;
+    while ($this->data = mysqli_fetch_assoc($this->result)) {
+    $this->fetch = $this->data;
+    return $this->fetch;
+    }
 }
+
+function getNumberOfPages($Query, $itemsPerPage) {
+    $this->run('SELECT COUNT(*) AS total_count FROM '.$Query);
+    $this->row();
+    $totalCount = intval($this->data['total_count']);
+    $numberOfPages = ceil($totalCount / $itemsPerPage);
+    return $numberOfPages;
 }
+
 function stop() {
 unset($this->data);
 unset($this->result);
