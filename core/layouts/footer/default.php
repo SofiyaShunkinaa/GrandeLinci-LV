@@ -21,4 +21,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/js/script.js"></script>
+
+<script src="/includes/splide-4.1.3/dist/js/splide.min.js">
+</script><script src="/assets/js/script.js"></script>
