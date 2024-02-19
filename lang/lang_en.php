@@ -52,12 +52,12 @@ $Lang = array(
                 "title" => "About us",
                 "article" => [
                     [
-                        "img_path" => "/assets/images/cat1.png",
+                        "img_path" => "/assets/images/cat2.png",
                         "title" => "Health Guarantees",
                         "content" => "Each cat undergoes regular veterinary examinations, receives high-quality nutrition, and endless attention.Our care for your future four-legged friend begins right here."
                     ],
                     [
-                        "img_path" => "/assets/images/cat2.png",
+                        "img_path" => "/assets/images/cat1.png",
                         "title" => "Fall in Love with the Personality",
                         "content" => "Every personality is unique, and we proudly present to you our furry individualists. From affectionate cuddlers to unwavering explorers, we have a Maine Coon for every heart."
                     ]
@@ -79,7 +79,7 @@ $Lang = array(
             "main" => [
                 "title" => "Our cats",
                 "subtitle" => "Only the Best Purebred Producers",
-                "img_path" => "/assets/images/available_main.png"
+                "img_path" => "/assets/images/cats_main.png"
             ],
             "content" => [
                 "title" => "Elegant Personalities",
