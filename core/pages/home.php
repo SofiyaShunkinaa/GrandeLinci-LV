@@ -23,7 +23,7 @@ $db->stop();
             <div class="a-head__text">
                 <h1><?php echo $Lang['Pages'][$alias]['main']['title'] ?></h1>
                 <p><?php echo $Lang['Pages'][$alias]['main']['subtitle'] ?></p>
-                <button class="btn"><a href="/?option=available_kittens"></a></button>
+                <button class="btn btn-blue btn-lg btn-home"><a href="/?option=available_kittens"><?php echo $Lang['Buttons']['choose_kit'] ?></a></button>
             </div>
             <div class="a-head__img">
                 <img src="<?php echo $Lang['Pages'][$alias]['main']['img_path'] ?>" alt="main_cat">
@@ -37,8 +37,21 @@ $db->stop();
 
         <div class="section section-welcome">
             <?php echo title($Lang['Pages'][$alias]['section_welcome']['title']) ?>
-
             <p class="section-content"><?php echo $Lang['Pages'][$alias]['section_welcome']['content'] ?></p>
+
+            <section class="splide" aria-label="Splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><img src="/assets/images/cat2.png" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat3.png" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat4.png" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat5.png" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat6.png" alt="cat"></li>
+                    </ul>
+                </div>
+            </section>
+
+            <button class="btn btn-blue btn-md"><a href="?/option=about_us"><?php echo $Lang['Buttons']['learn_more'] ?></a></button>
         </div>
 
         <div class="section section-last-events">
@@ -52,9 +65,17 @@ $db->stop();
             <?php echo title($Lang['Pages'][$alias]['section_about']['title']) ;
 
             $articles = "<div class='subsection-articles'>";
+            $order = 0;
             foreach ($Lang['Pages'][$alias]['section_about']['article'] as $article){
-                $articles .= "<div class='article-container'><h3>{$article['title']}</h3>";
-                $articles .= "<p>{$article['content']}</p><img src='{$article['img_path']}'></div>";
+                if($order==0) {
+                    $articles .= "<div class='article-container col-6'><h3>{$article['title']}</h3>";
+                    $articles .= "<p>{$article['content']}</p><img src='{$article['img_path']}'></div>";
+                    $order++;
+                }
+                else{
+                    $articles .= "<div class='article-container col-6'><img src='{$article['img_path']}'><h3>{$article['title']}</h3>";
+                    $articles .= "<p>{$article['content']}</p></div>";
+                }
             }
             echo $articles."</div>"
             ?>
