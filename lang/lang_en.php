@@ -111,51 +111,54 @@ $Lang = array(
             "main" => [
                 "title" => "About the Breed",
                 "subtitle" => "Get to know the character and care specifics of your future pet",
-                "img_path" => "/assets/images/available_main.png"
+                "img_path" => "/assets/images/cat21.png"
             ],
             "content" => [
-                [
                     "img" => "/assets/images/",
                     "title" => "Contents",
                     "list" => [
-                        0 => "Breed History",
-                        1 => "Maine Coon Appearance",
-                        2 => "Maine Coon Temperament",
-                        3 => "Health and Diseases",
-                        4 => "Care and Maintenance"
-                    ]
-                ],
+                        0 => ["name" => "Breed History", "href" => "history"],
+                        1 => ["name" => "Maine Coon Appearance", "href" => "appearance"],
+                        2 => ["name" => "Maine Coon Temperament", "href" => "temperament"],
+                        3 => ["name" => "Health and Diseases", "href" => "health"],
+                        4 => ["name" => "Care and Maintenance", "href" => "care"]
+                    ],
+                    "articles" => [
                 [
+                    "href" => "history",
                     "img_path" => "/assets/images/cat3.png",
                     "title" => "Breed History",
-                    "content" => "The name of the breed translates as 'Maine raccoon'. While the first term in this phrase is clear ('Maine' from the name of the U.S. state Maine), the second requires clarification. The unusual striped coloration and fluffy tails of Maine Coons have led breeders to create a legend that the breed was obtained by crossing a member of the cat family with a raccoon.
-
-The legend remains a legend, but the word 'Coon' (short for raccoon) has stuck with the breed."
+                    "content" => "The name of the breed translates as 'Maine raccoon'. While the first term in this phrase is clear ('Maine' from the name of the U.S. state Maine), the second requires clarification. The unusual striped coloration and fluffy tails of Maine Coons have led breeders to create a legend that the breed was obtained by crossing a member of the cat family with a raccoon.<br>The legend remains a legend, but the word 'Coon' (short for raccoon) has stuck with the breed."
                 ],
                 [
+                    "href" => "appearance",
                     "img_path" => "/assets/images/cat4.png",
                     "title" => "Maine Coon Appearance",
                     "content" => "The appearance of the famous Maine Coon family has been significantly influenced by Maine's climate: surviving in cold snowy continental winters without thick undercoat is very difficult. A wide paw, protected by additional tufts of fur, is also a useful adaptation, helping to glide on icy surfaces without sinking into snow. And impressive size is an invaluable advantage in hunting small game. 
-
+<br>
 As for modern representatives of the breed, the passion of European breeders for extremization could not help but affect their appearance. Today's Maine Coons have significantly increased in size, their faces have become even more elongated, and their ears have grown considerably."
                 ],
                 [
+                    "href" => "temperament",
                     "img_path" => "/assets/images/cat5.png",
                     "title" => "Maine Coon Temperament",
                     "content" => "Maine Coons are unobtrusive cats who highly value their independence. This trait is especially pronounced in females. Animals react favorably to tactile contact, but you won't be able to knead or squeeze them.
-
+<br>
 The period of maximum physical activity for this breed is in the first five years of life. After reaching this 'respectable' age, cats start to become slightly lazy, preferring passive rest to noisy games."
                 ],
                 [
+                    "href" => "health",
                     "img_path" => "/assets/images/cat6.png",
                     "title" => "Health and Diseases",
                     "content" => "Among the specific diseases that Coons are susceptible to, breeders highlight abscesses, bald spots, alopecia, and dried-out skin. The causes of these ailments can be excessive use of water procedures, improperly chosen shampoo, and untimely cleaning of the animal's coat."
                 ],
                 [
+                    "href" => "care",
                     "img_path" => "/assets/images/cat7.png",
                     "title" => "Care and Maintenance",
                     "content" => "The ideal habitat for a Maine Coon is a country house where the animal can roam freely and satisfy its hunting passion. However, breeders claim that with proper care from the owner, cats of this breed can adapt well even in a city apartment. And excursions to meadows and forests can easily be replaced by regular walks on a leash. If you don't have the opportunity to take your pet out often, consider purchasing a tall play complex that can brighten up your pet's everyday life."
                 ]
+                        ]
             ]
         ),
         "about_us" => array(
