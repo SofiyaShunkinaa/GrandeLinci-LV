@@ -646,3 +646,84 @@ footer a{
     left: 300;
     top: 4350;
 }
+
+.btn a{
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.btn{
+    border-radius: 17px !important;
+}
+
+.btn-blue{
+    background: var(--a-dark-blue) !important;
+}
+
+.btn-blue:hover{
+    background: var(--a-lightblue) !important;
+}
+
+.btn a:hover{
+    color: white !important;
+}
+
+.btn-blue:active{
+    background: var(--a-blue) !important;
+}
+
+.btn-lg{
+    padding:16px 32px !important;
+}
+
+.btn-home{
+    margin-top: 40px;
+}
+
+.section-welcome section{
+    height: fit-content;
+    margin-top: 43px;
+}
+
+.splide__pagination{
+    bottom: -35;
+}
+
+.splide__pagination__page{
+    background: var(--a-gray);
+    height: 15px;
+    width: 15px;
+    margin: 6px;
+}
+
+.splide__pagination__page.is-active{
+    background: var(--a-blue);
+    transform: none;
+}
+
+.splide img:active{
+    border: 2px solid var(--a-dark-blue);
+}
+
+.splide__arrow{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.splide__arrow svg{
+    fill: white;
+}
+
+.btn-md{
+    padding: 14px 28px;
+    font-size: 18px;
+}
+
+.section-welcome .btn{
+    margin-top: 82px !important;
+    margin: 0 auto;
+}
+.section-welcome{
+    display: flex;
+    flex-direction: column;
+}
