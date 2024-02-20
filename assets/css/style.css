@@ -812,3 +812,29 @@ footer a{
 .cats-content p{
     font-size: var(--card-p-font-size) !important;
 }
+
+.pages-pagination{
+    margin: 0 auto;
+    margin-top: 52px;
+    width: fit-content;
+}
+
+.btn-page{
+    color: var(--a-gray);
+}
+
+.btn-page.current{
+    color: white;
+    background: var(--a-dark-blue);
+}
+
+.pages-pagination .btn{
+    border-radius: 5px !important;
+}
+
+.btn-arrow{
+    background: var(--a-gray);
+    color: white;
+    padding: 2px 8px;
+    margin: 0 5px;
+}
