@@ -21,21 +21,21 @@ $query_girls = 'cats WHERE id_sex = 2';
 //}
 
 $filter = null;
-if(isset($_POST['filter'])){
-    $filter = $_POST['filter'];
+if(isset($_GET['filter'])){
+    $filter = $_GET['filter'];
 }
 switch($filter){
     case "boys":
         $filteredQuery = $query_boys;
-        //$page = $defPage;
+        $page = 1;
         break;
     case "girls":
         $filteredQuery = $query_girls;
-        //$page = $defPage;
+        $page = 1;
         break;
     default:
         $filteredQuery = $query_all;
-        //$page = $defPage;
+        $page = 1;
         break;
 }
 
@@ -48,7 +48,7 @@ $catsArray = array();
 while ($row = $db->fetch()) {
 $catsArray[] = $row;
 }
-var_dump($catsArray);
+//var_dump($catsArray);
 //." LIMIT 5 OFFSET ".$offset
 
 // IF PAGE NOT EXISTS
@@ -65,7 +65,7 @@ $db->stop();
         <p class="section-content"><?php echo $Lang['Pages'][$alias]['content']['subtitle'] ?></p>
 
         <div class="sex-filter-switcher ">
-            <form id="filter-form" method="post">
+            <form id="filter-form" method="get">
                 <select name="filter" class="select" id="selector" onchange="this.form.submit()">
                     <option value="<?php echo $Lang['sex_filter'][0][1]; ?>" <?php if($filter == $Lang['sex_filter'][0][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][0][0]; ?></option>
                     <option value="<?php echo $Lang['sex_filter'][1][1]; ?>" <?php if($filter == $Lang['sex_filter'][1][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][1][0]; ?></option>
@@ -103,7 +103,7 @@ $db->stop();
                 ?>
             </div>
 
-            <?php echo create_pagination($pagesCount); ?>
+            <?php echo create_pagination($pagesCount, $page); ?>
 
         </div>
     </div>
