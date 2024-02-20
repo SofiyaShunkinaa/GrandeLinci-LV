@@ -279,6 +279,123 @@ The period of maximum physical activity for this breed is in the first five year
         0 => ["Boys and Girls", "all"],
         1 => ["Boys", "boys"],
         2 => ["Girls", "girls"]
+    ],
+
+    "Cards" => [
+        "cats" => [
+            "date_of_birth" => "Date of birth: ",
+            "color" => "Color: ",
+            "titles" => "Titles: ",
+            "tests" => "Tests: "
+        ]
+    ],
+
+    "Colors" => [
+        "1" => ["char" => "A", "desc" => "Red"]
+    ],
+
+    "Patterns" => [
+        "1" => ["code" => "2", "desc" => "patterned"],
+        "" => ""
+    ],
+
+    "Cats" => [
+        1 => [
+            "name" => "Monica",
+            "desc" => "Grand Vinci *LV Monica is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        2 => [
+            "name" => "Lord",
+            "desc" => "Grand Vinci *LV Lord is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        3 => [
+            "name" => "Jessy",
+            "desc" => "Grand Vinci *LV Jessy is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        4 => [
+            "name" => "Alex",
+            "desc" => "Grand Vinci *LV Alex is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        5 => [
+            "name" => "Gucci",
+            "desc" => "Grand Vinci *LV Gucci is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        6 => [
+            "name" => "Maggy",
+            "desc" => "Grand Vinci *LV Maggy is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        7 => [
+            "name" => "Richard",
+            "desc" => "Grand Vinci *LV Richard is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        8 => [
+            "name" => "Lessi",
+            "desc" => "Grand Vinci *LV Lessi is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        9 => [
+            "name" => "Sam",
+            "desc" => "Grand Vinci *LV Sam is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        10 => [
+            "name" => "Mell",
+            "desc" => "Grand Vinci *LV Mell is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        11 => [
+            "name" => "Karry",
+            "desc" => "Grand Vinci *LV Karry is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        12 => [
+            "name" => "Lucy",
+            "desc" => "Grand Vinci *LV Monica is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        13 => [
+            "name" => "Robin",
+            "desc" => "Grand Vinci *LV Robin is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        14 => [
+            "name" => "Jackson",
+            "desc" => "Grand Vinci *LV Jackson is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        15 => [
+            "name" => "Christy",
+            "desc" => "Grand Vinci *LV Christy is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        16 => [
+            "name" => "Rodger",
+            "desc" => "Grand Vinci *LV Rodger is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
+        ]
     ]
 
 );
