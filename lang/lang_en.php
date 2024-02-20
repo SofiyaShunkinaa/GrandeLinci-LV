@@ -273,6 +273,12 @@ The period of maximum physical activity for this breed is in the first five year
         "learn_more" => "Learn more",
         "buy_me" => "Buy me",
         "view_more" => "View more"
+    ],
+
+    "sex_filter" => [
+        0 => ["Boys and Girls", "all"],
+        1 => ["Boys", "boys"],
+        2 => ["Girls", "girls"]
     ]
 
 );
