@@ -12,12 +12,6 @@ $query_all = 'cats';
 $query_boys = 'cats WHERE id_sex = 1';
 $query_girls = 'cats WHERE id_sex = 2';
 
-//$db->run($query2);
-//$db->row();
-//$catsArray = array();
-//while ($row = $db->fetch()) {
-    //$catsArray[] = $row;
-//}
 $filter = null;
 if(isset($_POST['filter'])){
     $filter = $_POST['filter'];
@@ -39,8 +33,12 @@ switch($filter){
 
 
 $db->getNumberOfPages($filteredQuery, 4);
-
-// COMPONENT VARIABLES
+$db->run("SELECT * FROM ".$filteredQuery);
+$db->row();
+$catsArray = array();
+while ($row = $db->fetch()) {
+$catsArray[] = $row;
+}
 
 
 // IF PAGE NOT EXISTS
@@ -55,9 +53,10 @@ $db->stop();
     <div class="section section-cats">
         <?php echo title($Lang['Pages'][$alias]['content']['title']); ?>
         <p class="section-content"><?php echo $Lang['Pages'][$alias]['content']['subtitle'] ?></p>
-        <div class="sex-filter-switcher dropdown">
+
+        <div class="sex-filter-switcher ">
             <form id="filter-form" method="post">
-                <select name="filter" id="selector" onchange="this.form.submit()">
+                <select name="filter" class="select" id="selector" onchange="this.form.submit()">
                     <option value="<?php echo $Lang['sex_filter'][0][1]; ?>" <?php if($filter == $Lang['sex_filter'][0][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][0][0]; ?></option>
                     <option value="<?php echo $Lang['sex_filter'][1][1]; ?>" <?php if($filter == $Lang['sex_filter'][1][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][1][0]; ?></option>
                     <option value="<?php echo $Lang['sex_filter'][2][1]; ?>" <?php if($filter == $Lang['sex_filter'][2][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][2][0]; ?></option>
@@ -65,12 +64,23 @@ $db->stop();
             </form>
             <div id="result"></div>
         </div>
+
         <div class="cats-section">
-            <?php
-            //foreach ($catsArray as $cat)
-                //echo $cat['name'];
-                //$pagination =
-            ?>
+            <div class="cats-container">
+                <?php
+                $card = "<div class='cat-card'>";
+                foreach ($catsArray as $cat){
+                    $card .= "<div class='col-6'><img src='{$cat['img_path']}' alt='cat'></div>
+                        <div class='col-6 cars-content'><h4 class='cat-name'>{}</h4><div class='undername-rect'></div>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['date_of_birth']}</p><p>{$cat['date_of_birth']}</p></div>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['color']}</p><p></p></div>
+                        <p>{}</p>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['titles']}</p><p>{}</p></div>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['tests']}</p><p>{}</p></div></div>";}
+                echo $card."</div>";
+                ?>
+            </div>
+
         </div>
     </div>
 </div>
