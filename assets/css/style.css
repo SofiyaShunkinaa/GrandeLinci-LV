@@ -763,3 +763,52 @@ footer a{
     background-position-y: center;
     padding-right: 50px;
 }
+
+.cat-card{
+    display: flex;
+    background: var(--a-blue);
+    color: black;
+    border-radius: 17px;
+    gap: 35px;
+}
+
+.cats-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.doubled-field p:first-of-type{
+    color: var(--a-dark-blue);
+    font-weight: 500;
+}
+
+.undername-rect{
+    width: 61px;
+    height: 4px;
+    background: white;
+    margin-top: 12px;
+    margin-bottom: 22px;
+}
+
+.sex-filter-switcher{
+    margin: 65px 0;
+}
+
+.doubled-field{
+    display: flex;
+    gap: 3px;
+}
+
+.cats-content{
+    max-width: 566px;
+    padding-top: 28px;
+}
+
+.cats-content h4{
+    font-size: var(--h4-font-size);
+}
+
+.cats-content p{
+    font-size: var(--card-p-font-size) !important;
+}
