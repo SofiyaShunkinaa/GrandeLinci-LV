@@ -748,3 +748,18 @@ footer a{
 .page-home .article-container:nth-of-type(2) img{
     margin: 0 71px 61px 71px;
 }
+
+#selector{
+    padding: 16px 21px;
+    background-color: var(--a-gray);
+    color: white;
+    border-radius: 17px;
+    font-weight: 600;
+    font-size: 16px;
+    appearance: none;
+    background-image: url("/assets/images/select-arrow.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    padding-right: 50px;
+}
