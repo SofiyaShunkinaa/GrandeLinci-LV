@@ -395,6 +395,12 @@ The period of maximum physical activity for this breed is in the first five year
             "desc" => "Grand Vinci *LV Rodger is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
             "titles" => "Champion of the breed, champion of Europe.",
             "tests" => "HCM, PKdef, SMA - N/N"
+        ],
+        17 => [
+            "name" => "newCat",
+            "desc" => "Grand Vinci *LV Rodger is a wonderful 'show/breed' cat that has inherited a very good pedigree.",
+            "titles" => "Champion of the breed, champion of Europe.",
+            "tests" => "HCM, PKdef, SMA - N/N"
         ]
     ]
 
