@@ -12,45 +12,52 @@ $query_all = 'cats';
 $query_boys = 'cats WHERE id_sex = 1';
 $query_girls = 'cats WHERE id_sex = 2';
 
-//if(isset($_GET['page'])){
-//    $defPage = 1;
-//    $_SESSION['page'] = $defPage;
-//}
-//else{
-//    $_SESSION['page'] = $_GET['page'];
-//}
-
+// GETTING FILTER
 $filter = null;
 if(isset($_GET['filter'])){
     $filter = $_GET['filter'];
 }
+
+//echo $_GET['page']."<br>";
+//
+//
+//// PAGE CONTROLLER
+//if(!isset($_GET['page']) or isset($_SESSION['previousPage']) and $_SESSION['previousPage'] != $filter){
+//    $defPage = 1;
+//    $_SESSION['CurrentPage'] = $defPage;
+//    echo "first case";
+//}
+//else{
+//    $_SESSION['CurrentPage'] = $_GET['page'];
+//    echo "second case";
+//}
+
+$currentPage = isset($_GET['CurrentPage']) ? $_GET['page'] : 1;
+
+
 switch($filter){
     case "boys":
         $filteredQuery = $query_boys;
-        $page = 1;
         break;
     case "girls":
         $filteredQuery = $query_girls;
-        $page = 1;
         break;
     default:
         $filteredQuery = $query_all;
-        $page = 1;
         break;
 }
 
 
 $pagesCount = $db->getNumberOfPages($filteredQuery, 4);
-//$offset = ($page - 1)*4;
-$db->run("SELECT * FROM ".$filteredQuery);
+$offset = ($_GET['page'] - 1)*4;
+$db->run("SELECT * FROM ".$filteredQuery." LIMIT 5 OFFSET ".$offset.";");
 $db->row();
 $catsArray = array();
 while ($row = $db->fetch()) {
 $catsArray[] = $row;
 }
 //var_dump($catsArray);
-//." LIMIT 5 OFFSET ".$offset
-
+//echo $_SESSION['CurrentPage'];
 // IF PAGE NOT EXISTS
 if (!$id) {
     header("HTTP/1.1 404 Not Found");
@@ -67,9 +74,9 @@ $db->stop();
         <div class="sex-filter-switcher ">
             <form id="filter-form" method="get">
                 <select name="filter" class="select" id="selector" onchange="this.form.submit()">
-                    <option value="<?php echo $Lang['sex_filter'][0][1]; ?>" <?php if($filter == $Lang['sex_filter'][0][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][0][0]; ?></option>
-                    <option value="<?php echo $Lang['sex_filter'][1][1]; ?>" <?php if($filter == $Lang['sex_filter'][1][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][1][0]; ?></option>
-                    <option value="<?php echo $Lang['sex_filter'][2][1]; ?>" <?php if($filter == $Lang['sex_filter'][2][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][2][0]; ?></option>
+                    <option value="<?php echo $Lang['sex_filter'][0][1]."&page=1"; ?>" <?php if($filter == $Lang['sex_filter'][0][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][0][0]; ?></option>
+                    <option value="<?php echo $Lang['sex_filter'][1][1]."&page=1"; ?>" <?php if($filter == $Lang['sex_filter'][1][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][1][0]; ?></option>
+                    <option value="<?php echo $Lang['sex_filter'][2][1]."&page=1"; ?>" <?php if($filter == $Lang['sex_filter'][2][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][2][0]; ?></option>
                 </select>
             </form>
             <div id="result"></div>
@@ -102,8 +109,14 @@ $db->stop();
                 echo $card;
                 ?>
             </div>
+            <?php
+            //echo $_GET['filter'];
+            preg_match('/^(.*?)(?=&)/', $filter, $matches);
 
-            <?php echo create_pagination($pagesCount, $page); ?>
+                $substring = isset($substring) ? $matches[1] : "all";
+                echo create_pagination($pagesCount, $_GET['page'], $filter);
+
+             ?>
 
         </div>
     </div>
