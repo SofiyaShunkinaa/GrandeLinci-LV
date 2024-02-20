@@ -12,34 +12,44 @@ $query_all = 'cats';
 $query_boys = 'cats WHERE id_sex = 1';
 $query_girls = 'cats WHERE id_sex = 2';
 
+//if(isset($_GET['page'])){
+//    $defPage = 1;
+//    $_SESSION['page'] = $defPage;
+//}
+//else{
+//    $_SESSION['page'] = $_GET['page'];
+//}
+
 $filter = null;
 if(isset($_POST['filter'])){
     $filter = $_POST['filter'];
 }
 switch($filter){
-    case "all":
-        $filteredQuery = $query_all;
-        break;
     case "boys":
         $filteredQuery = $query_boys;
+        //$page = $defPage;
         break;
     case "girls":
         $filteredQuery = $query_girls;
+        //$page = $defPage;
         break;
     default:
         $filteredQuery = $query_all;
+        //$page = $defPage;
         break;
 }
 
 
-$db->getNumberOfPages($filteredQuery, 4);
+$pagesCount = $db->getNumberOfPages($filteredQuery, 4);
+//$offset = ($page - 1)*4;
 $db->run("SELECT * FROM ".$filteredQuery);
 $db->row();
 $catsArray = array();
 while ($row = $db->fetch()) {
 $catsArray[] = $row;
 }
-
+var_dump($catsArray);
+//." LIMIT 5 OFFSET ".$offset
 
 // IF PAGE NOT EXISTS
 if (!$id) {
@@ -68,18 +78,32 @@ $db->stop();
         <div class="cats-section">
             <div class="cats-container">
                 <?php
-                $card = "<div class='cat-card'>";
+                $card = "";
                 foreach ($catsArray as $cat){
-                    $card .= "<div class='col-6'><img src='{$cat['img_path']}' alt='cat'></div>
-                        <div class='col-6 cars-content'><h4 class='cat-name'>{}</h4><div class='undername-rect'></div>
-                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['date_of_birth']}</p><p>{$cat['date_of_birth']}</p></div>
-                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['color']}</p><p></p></div>
-                        <p>{}</p>
-                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['titles']}</p><p>{}</p></div>
-                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['tests']}</p><p>{}</p></div></div>";}
-                echo $card."</div>";
+                    $card .= "<div class='cat-card'><div class='col-6'><img src='{$cat['img_path']}' alt='cat'></div>
+                        <div class='col-6 cats-content'><h4 class='cat-name'>Grande Linci *LV {$Lang['Cats'][$cat['id']]['name']}</h4><div class='undername-rect'></div>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['date_of_birth']}</p><p>{$cat['date_of_birth']}</p></div>";
+                    if(isset($cat['id_pattern'])) {
+                        $card .= "<div class='doubled-field' ><p >
+                            {$Lang['Cards']['cats']['color']}</p ><p >
+                            {$Lang['Colors'][$cat['id_color']]['char']}
+                            {$Lang['Patterns'][$cat['id_pattern']]['code']} ({$Lang['Colors'][$cat['id_color']]['desc']}
+                            {$Lang['Patterns'][$cat['id_pattern']]['desc']})</p ></div >";
+                        }
+                    else{
+                        $card .= "<div class='doubled-field' ><p >
+                            {$Lang['Cards']['cats']['color']}</p ><p >
+                            {$Lang['Colors'][$cat['id_color']]['char']} ({$Lang['Colors'][$cat['id_color']]['desc']})</p ></div >";
+                    }
+                    $card .= "<p>{$Lang['Cats'][$cat['id']]['desc']}</p>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['titles']}</p><p>{$Lang['Cats'][$cat['id']]['titles']}</p></div>
+                        <div class='doubled-field'><p>{$Lang['Cards']['cats']['tests']}</p><p>{$Lang['Cats'][$cat['id']]['tests']}</p></div></div></div>";
+                }
+                echo $card;
                 ?>
             </div>
+
+            <?php echo create_pagination($pagesCount); ?>
 
         </div>
     </div>
