@@ -17,3 +17,15 @@ function create_card($icon_path, $title, $text){
 function create_linkedcard($icon_path, $title, $text, $link){
     return "<div class='card-container col-3'><img src='{$icon_path}' alt='icon'><h4>{$title}</h4><p><a href='{$link}'>{$text}</a></p></div>";
 }
+
+function create_pagination($pagesCount, $CurrentPage, $filter){
+    $pagination = '<div class="pages-pagination"><a class=" btn btn-arrow arrow-left">&#60</a>';
+        for ($pageNum = 1; $pageNum <= $pagesCount; $pageNum++){
+            $pagination .= "<a class='btn ";
+            if($CurrentPage == $pageNum) {
+                $pagination .= "current ";
+            }
+            $pagination .= "btn-page' href='/?option=our_cats&filter={$filter}&page={$pageNum}'>{$pageNum}</a>";
+        }
+    return $pagination.'<a class="btn btn-arrow arrow-left">&#62</a></div>';
+}
