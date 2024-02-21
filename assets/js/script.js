@@ -20,3 +20,23 @@ var splide = new Splide( '.splide', {
 } );
 
 splide.mount();
+
+//POPUP
+$(document).ready(function(){
+    //Скрыть PopUp при загрузке страницы
+    PopUpHide();
+});
+//Функция отображения PopUp
+function PopUpShow(){
+    $("#popup1").show();
+    $("#hiddenInput").val(value);
+}
+
+//Функция скрытия PopUp
+function PopUpHide(){
+    $("#popup1").hide();
+}
+function openPopup(value) {
+    var url = "/core/layouts/pop-up/form.php" ; // Передача значения через URL параметр
+    window.open(url, "Popup", "width=400, height=400");
+}
