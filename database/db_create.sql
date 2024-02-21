@@ -65,3 +65,6 @@ CREATE TABLE pages(
 ALTER TABLE `main_menu` ADD `name` VARCHAR(255) NULL AFTER `id`;
 
 UPDATE `main_menu` SET `name` = 'about_us' WHERE `main_menu`.`id` = 1; UPDATE `main_menu` SET `name` = 'available_kittens' WHERE `main_menu`.`id` = 2; UPDATE `main_menu` SET `name` = 'our_cats' WHERE `main_menu`.`id` = 3; UPDATE `main_menu` SET `name` = 'photogallery' WHERE `main_menu`.`id` = 4; UPDATE `main_menu` SET `name` = 'about_breed' WHERE `main_menu`.`id` = 5; UPDATE `main_menu` SET `name` = 'contacts' WHERE `main_menu`.`id` = 6;
+
+ALTER TABLE `kittens` ADD `castration` INT(1) NOT NULL DEFAULT '1' AFTER `img_path`;
+ALTER TABLE `kittens` ADD `selling` INT(1) NOT NULL DEFAULT '1' AFTER `castration`;
