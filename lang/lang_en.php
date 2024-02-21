@@ -287,6 +287,15 @@ The period of maximum physical activity for this breed is in the first five year
             "color" => "Color: ",
             "titles" => "Titles: ",
             "tests" => "Tests: "
+        ],
+        "kittens" => [
+            "sex" => "Sex: ",
+            "age" => "Age: ",
+            "mother" => "Mother: ",
+            "father" => "Father: ",
+            "castration" => "Castration: ",
+            "selling" => "Selling: ",
+            "month" => "mo."
         ]
     ],
 
@@ -402,6 +411,89 @@ The period of maximum physical activity for this breed is in the first five year
             "titles" => "Champion of the breed, champion of Europe.",
             "tests" => "HCM, PKdef, SMA - N/N"
         ]
+    ],
+
+    "Kittens" => [
+        1 => [
+            "name" => "Kiki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        2=> [
+            "name" => "Mag",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        3 => [
+            "name" => "Riki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        4 => [
+            "name" => "Jakki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        5 => [
+            "name" => "Liki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        6 => [
+            "name" => "Ruki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        7 => [
+            "name" => "Cake",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        8 => [
+            "name" => "Fifi",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        9 => [
+            "name" => "Loki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        10 => [
+            "name" => "Lori",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        11 => [
+            "name" => "Molli",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        12 => [
+            "name" => "Polli",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        13 => [
+            "name" => "Maggi",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        14 => [
+            "name" => "Hooki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ],
+        15 => [
+            "name" => "Rooki",
+            "castration" => "Castrated",
+            "selling" => "In breeding"
+        ]
+    ],
+
+    "Sex" => [
+        1 => "Male",
+        2 => "Female"
     ]
 
 );
