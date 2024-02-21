@@ -23,13 +23,16 @@
                 }
 
                 function buildList($items, $parentId = 0) {
-                    global $Lang;
+                    global $Lang, $Photos;
                     global $CurentLang;
                     $html = "<ul>";
                     foreach ($items as $item) {
                         if(preg_match('/secondary/', $item['custom_class'])) {
                             if ($item['parent_id'] == $parentId) {
-                                if(preg_match('/has-img/', $item['custom_class'])){
+                                if(preg_match('/dropdown-lang/', $item['custom_class'])){
+                                    $html .= "<li class='{$item['custom_class']}'><img class='flag-preview' src='{$Photos['flags'][$CurentLang]}'><img src='/assets/images/select-arrow.png'>";
+                                }
+                                elseif(preg_match('/has-img/', $item['custom_class'])){
                                     $html .= "<li class=";
                                         if(isset($CurentLang) and strtoupper($CurentLang) == $Lang['Header']['secondary'][$item['id']]){
                                             $html .= " active ";
