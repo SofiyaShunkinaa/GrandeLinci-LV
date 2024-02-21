@@ -9,6 +9,24 @@ $db->row();
 $id = $db->data['page_id'];
 $alias = $db->data['page_alias'];
 
+// GETTING DATA FOR EVENT SECTION
+        $db->run("SELECT * FROM cats WHERE id=3 or id=4;");
+$parentArray = array();
+$db->row();
+$parentArray[] = $db->data;
+while ($row = $db->fetch()) {
+    $parentArray[] = $row;
+}
+
+$db->run("SELECT * FROM kittens WHERE id_mother = 3 or id_father = 4 LIMIT 3;");
+$catsArray = array();
+$db->row();
+$kittensArray[] = $db->data;
+while ($row = $db->fetch()) {
+    $kittensArray[] = $row;
+}
+
+
 // IF PAGE NOT EXISTS
 if (!$id) {
 header("HTTP/1.1 404 Not Found");
@@ -59,6 +77,33 @@ $db->stop();
             <p class="section-content"><?php echo $Lang['Pages'][$alias]['section_events']['litter_date'] ?></p>
             <p class="section-content section-content-2"><?php echo $Lang['Pages'][$alias]['section_events']['parents'] ?></p>
 
+            <?php
+            $section = "<div class='parent-section'>";
+            $num = 0;
+            foreach ($parentArray as $parent) {
+                if(!$num) {
+                    $section .= "<div class='parent-card col-6'><div class='parent-image' style='background-image: url({$parent['img_path']})'></div><div class='parent-name'><p>{$Lang['Cards']['kittens']['mother']}</p><p>Grande Linci *LV {$Lang['Cats'][$parent['id']]['name']}</p></div></div>";
+                    $num++;
+                }
+                else{
+                    $section .= "<div class='parent-card col-6'><div class='parent-image' style='background-image: url({$parent['img_path']})'></div><div class='parent-name'><p><p>{$Lang['Cards']['kittens']['father']}</p><p>Grande Linci *LV {$Lang['Cats'][$parent['id']]['name']}</p></div></div></div>";
+                }
+            }
+            $section .= "<div class='kittens-container'>";
+            foreach ($kittensArray as $kit){
+                $section .= "<div class='cat-card kitten-card'><div class='col-6'><img src='{$kit['img_path']}' alt='kitten'></div>
+                <div class='col-6 cats-content'><h4 class='cat-name'>{$Lang['Kittens'][$kit['id']]['name']}</h4><div class='undername-rect'></div>
+                <h4 class='cat-price'>{$kit['price']}€</h4>
+                <div class='cat-description'>
+                <div class='doubled-field'><p>{$Lang['Cards']['kittens']['sex']}</p><p>{$Lang['Sex'][$kit['id_sex']]}</p></div>
+                <div class='doubled-field'><p>{$Lang['Cards']['kittens']['age']}</p><p>{$kit['age']}{$Lang['Cards']['kittens']['month']}</p></div>
+                <div class='doubled-field'><p>{$Lang['Cards']['kittens']['selling']}</p><p>{$Lang['Kittens'][$kit['id']]['selling']}</p></div>
+                <div class='doubled-field'><p>{$Lang['Cards']['kittens']['castration']}</p><p>{$Lang['Kittens'][$kit['id']]['castration']}</p></div></div>
+                <div class='cat-btn-container' ><button class='btn btn-blue btn-md'><a href='#'>{$Lang['Buttons']['buy_me']}</a></button></div></div></div>";
+            }
+            echo $section."</div>";
+            ?>
+            <button class="btn btn-blue btn-md"><a href="?/option=available_kittens"><?php echo $Lang['Buttons']['view_more'] ?></a></button>
         </div>
 
         <div class="section section-about-us">
@@ -81,7 +126,11 @@ $db->stop();
             ?>
         </div>
 
-    </div>
+
 
 </div>
 <div class="bg-1"><img src="/assets/images/bg-left.png"></div>
+    <div class="bg-2"><img src="/assets/images/bg-left-2.png"></div>
+    <div class="bg-3"><img src="/assets/images/trace-bg-1.png"></div>
+    <div class="bg-4"><img src="/assets/images/trace-bg-4.png"></div>
+</div>
