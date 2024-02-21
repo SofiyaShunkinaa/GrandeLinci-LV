@@ -838,3 +838,7 @@ footer a{
     padding: 2px 8px;
     margin: 0 5px;
 }
+
+.dropdown-lang .flag-preview{
+    margin-right: 7px;
+}
