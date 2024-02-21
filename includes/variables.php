@@ -46,5 +46,10 @@ $Photos = [
         1 => "/assets/images/cat10",
         2 => "/assets/images/cat19"
     ],
-    404 => "/assets/images/404-cat"
+    404 => "/assets/images/404-cat",
+    "flags" => [
+        "en" => "/assets/images/flags/en.png",
+        "ru" => "/assets/images/flags/ru.png",
+        "lv" => "/assets/images/flags/lv.png",
+    ]
 ];
