@@ -101,7 +101,7 @@ $db->stop();
             preg_match('/^(.*?)(?=&)/', $filter, $matches);
 
                 $substring = isset($substring) ? $matches[1] : "all";
-                echo create_pagination($pagesCount, $currentPage, $filter);
+                echo create_pagination($pagesCount, $currentPage, $filter, $alias);
 
              ?>
 
