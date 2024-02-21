@@ -51,13 +51,15 @@ switch($filter){
 $pagesCount = $db->getNumberOfPages($filteredQuery, 4);
 $offset = ($_GET['page'] - 1)*4;
 $db->run("SELECT * FROM ".$filteredQuery." LIMIT 5 OFFSET ".$offset.";");
-$db->row();
 $catsArray = array();
+$db->row();
+$catsArray[] = $db->data;
+
 while ($row = $db->fetch()) {
-$catsArray[] = $row;
+    $catsArray[] = $row;
 }
 //var_dump($catsArray);
-//echo $_SESSION['CurrentPage'];
+
 // IF PAGE NOT EXISTS
 if (!$id) {
     header("HTTP/1.1 404 Not Found");
