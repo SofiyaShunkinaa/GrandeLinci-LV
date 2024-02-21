@@ -849,6 +849,7 @@ footer a{
     grid-auto-rows: 825px;
     grid-row-gap: 36px;
     grid-column-gap: 17px;
+    margin-bottom: 92px;
 }
 
 .kitten-card{
@@ -891,4 +892,77 @@ footer a{
 .cat-btn-container{
     display: flex;
     margin-top: 18px;
+}
+
+.page-home .kittens-container{
+    grid-auto-rows: 775px;
+}
+
+.section-last-events .btn{
+    margin: 0 auto;
+}
+
+.section-last-events{
+    display: flex;
+    flex-direction: column;
+}
+
+.section-last-events .section-content:nth-of-type(2){
+    font-weight: 600;
+}
+
+.parent-section{
+    display: flex;
+    padding: 0 110px;
+    gap: 20px;
+}
+
+.parent-name{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.parent-name p:nth-of-type(2){
+    font-weight: 600;
+}
+
+.parent-image{
+    width: 100%;
+    height: 235px;
+    border-radius: 29px;
+    background-size: cover;
+}
+
+.parent-section{
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.page-home .bg-1{
+    position: absolute;
+    z-index: -1;
+    top: 1600;
+}
+
+.page-home .bg-2{
+    position: absolute;
+    z-index: -1;
+    top: 2150;
+    right: 0;
+}
+
+.page-home .bg-3{
+    position: absolute;
+    z-index: -1;
+    top: 3650;
+    left: 50%;
+}
+
+.page-home .bg-4{
+    position: absolute;
+    z-index: -1;
+    top: 4150;
+    right: 50;
 }
