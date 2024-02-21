@@ -8,7 +8,7 @@ while ($row = $db->fetch()) {
     $kittens[] = $row;
 }
 
-$kittenPhoto = isset($_GET['id']) ? $kittens[$_GET['id']]['img_path'] : $kittens[$_GET['id']]['img_path'];
+$kittenPhoto = isset($_GET['id']) ? $kittens[$_GET['id']]['img_path'] : $kittens[1]['img_path'];
 $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
 
 ?>
@@ -23,17 +23,17 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
     <div class="form-body">
         <form action="form.php" method="post">
             <div>
-                <label><?php $Lang['Form']['name'] ?>
+                <label><?php echo $Lang['Form']['field']['name'] ?>
                     <input type="text" name="quest_name" required>
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['email'] ?>
+                <label><?php echo $Lang['Form']['field']['email'] ?>
                     <input type="email" name="quest_email" required>
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['phone'] ?>
+                <label><?php echo $Lang['Form']['field']['phone'] ?>
                     <input type="number" name="quest_photo" required>
                 </label>
             </div>
@@ -41,27 +41,27 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 <div class="form-kitten-photo" id="catImage" style="style='background-image: url(<?php echo $kittenPhoto ?>)'"></div>
             </div>
             <div>
-                <label><?php $Lang['Form']['extra_pets'] ?>
+                <label><?php echo $Lang['Form']['field']['extra_pets'] ?>
                     <input type="text" name="q1" required>
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['food'] ?>
+                <label><?php echo $Lang['Form']['field']['food'] ?>
                     <input type="text" name="q2" required>
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['children'] ?>
+                <label><?php echo $Lang['Form']['field']['children'] ?>
                     <input type="text" name="q3">
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['your_q'] ?>
+                <label><?php echo $Lang['Form']['field']['your_q'] ?>
                     <input type="text" name="q4">
                 </label>
             </div>
             <div>
-                <label><?php $Lang['Form']['chosen_pet'] ?>
+                <label><?php echo $Lang['Form']['field']['chosen_pet'] ?>
                     <select id="catSelect" onchange="changeImage()">
                         <?php
                             $opt = '';
