@@ -10,7 +10,7 @@ $id = $db->data['page_id'];
 $alias = $db->data['page_alias'];
 
 // GETTING DATA FOR EVENT SECTION
-        $db->run("SELECT * FROM cats WHERE id=3 or id=4;");
+$db->run("SELECT * FROM cats WHERE id=3 or id=4;");
 $parentArray = array();
 $db->row();
 $parentArray[] = $db->data;
@@ -99,11 +99,11 @@ $db->stop();
                 <div class='doubled-field'><p>{$Lang['Cards']['kittens']['age']}</p><p>{$kit['age']}{$Lang['Cards']['kittens']['month']}</p></div>
                 <div class='doubled-field'><p>{$Lang['Cards']['kittens']['selling']}</p><p>{$Lang['Kittens'][$kit['id']]['selling']}</p></div>
                 <div class='doubled-field'><p>{$Lang['Cards']['kittens']['castration']}</p><p>{$Lang['Kittens'][$kit['id']]['castration']}</p></div></div>
-                <div class='cat-btn-container' ><button class='btn btn-blue btn-md'><a href='#'>{$Lang['Buttons']['buy_me']}</a></button></div></div></div>";
+                <div class='cat-btn-container' ><button class='btn btn-blue btn-md' onclick=''><a href='javascript:PopUpShow({$kit['id']})'>{$Lang['Buttons']['buy_me']}</a></button></div></div></div>";
             }
             echo $section."</div>";
             ?>
-            <button class="btn btn-blue btn-md"><a href="?/option=available_kittens"><?php echo $Lang['Buttons']['view_more'] ?></a></button>
+            <button class="btn btn-blue btn-md"><a href="?option=available_kittens"><?php echo $Lang['Buttons']['view_more'] ?></a></button>
         </div>
 
         <div class="section section-about-us">
@@ -134,3 +134,5 @@ $db->stop();
     <div class="bg-3"><img src="/assets/images/trace-bg-1.png"></div>
     <div class="bg-4"><img src="/assets/images/trace-bg-4.png"></div>
 </div>
+
+<?php require($_SERVER['DOCUMENT_ROOT'].'/core/layouts/pop-up/form.php');
