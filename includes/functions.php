@@ -19,7 +19,9 @@ function create_linkedcard($icon_path, $title, $text, $link){
 }
 
 function create_pagination($pagesCount, $CurrentPage, $filter){
-    $pagination = '<div class="pages-pagination"><a class=" btn btn-arrow arrow-left">&#60</a>';
+    $prevPageNum = $CurrentPage<$pagesCount ? $CurrentPage+1 : $CurrentPage;
+    $nextPageNum = $CurrentPage>1 ? $CurrentPage-1 : $CurrentPage;
+    $pagination = "<div class='pages-pagination'><a class=' btn btn-arrow arrow-left' href='/?option=our_cats&filter={$filter}&page={$nextPageNum}'>&#60</a>";
         for ($pageNum = 1; $pageNum <= $pagesCount; $pageNum++){
             $pagination .= "<a class='btn ";
             if($CurrentPage == $pageNum) {
@@ -27,5 +29,5 @@ function create_pagination($pagesCount, $CurrentPage, $filter){
             }
             $pagination .= "btn-page' href='/?option=our_cats&filter={$filter}&page={$pageNum}'>{$pageNum}</a>";
         }
-    return $pagination.'<a class="btn btn-arrow arrow-left">&#62</a></div>';
+    return $pagination."<a class='btn btn-arrow arrow-left' href='/?option=our_cats&filter={$filter}&page={$prevPageNum}'>&#62</a></div>";
 }
