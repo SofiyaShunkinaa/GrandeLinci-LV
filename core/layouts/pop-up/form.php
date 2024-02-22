@@ -13,67 +13,80 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
 
 ?>
 
-<div class="container popup-form-container" id="popup1">
+<div class="popup-container" id="popup1">
+    <div class="form-container container">
     <div class="form-header">
         <div class="form-header--left">
             <?php echo title($Lang['Form']['title'])?>
+            <p class="error"></p>
         </div>
-        <div class="form-header--right"><div class="item-cross"></div><div class="item-cross"></div></div>
+        <div class="form-header--right"><a href="javascript:PopUpHide()"><img src="/assets/images/cross.png"></a></div>
     </div>
     <div class="form-body">
-        <form action="form.php" method="post">
-            <div>
-                <label><?php echo $Lang['Form']['field']['name'] ?>
-                    <input type="text" name="quest_name" required>
-                </label>
+        <form action="form.php" method="post" class="kitten-form">
+            <div class="form-grid">
+                <div>
+                    <label><?php echo $Lang['Form']['field']['name'] ?>
+                        <input type="text" name="quest_name" required>
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['email'] ?>
+                        <input type="email" name="quest_email" required>
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['phone'] ?>
+                        <input type="number" name="quest_photo" required>
+                    </label>
+                </div>
+                <div>
+                    <div class="form-kitten-photo" id="catImage" style="background-image: url(<?php echo $kittenPhoto ?>)"></div>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['extra_pets'] ?>
+                        <input type="text" name="q1" required>
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['food'] ?>
+                        <input type="text" name="q2" required>
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['children'] ?>
+                        <input type="text" name="q3">
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['your_q'] ?>
+                        <input type="text" name="q4">
+                    </label>
+                </div>
+                <div>
+                    <label><?php echo $Lang['Form']['field']['chosen_pet'] ?>
+                        <select id="catSelect" onchange="changeImage()">
+                            <?php
+                                $opt = '';
+                                foreach ($kittens as $kitten){
+                                   $opt .= "<option value='{$kitten['id']}'>{$Lang['Kittens'][$kitten['id']]['name']}</option>";
+                                }
+                                echo $opt;
+                            ?>
+                        </select>
+                    </label>
+                </div>
             </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['email'] ?>
-                    <input type="email" name="quest_email" required>
-                </label>
+            <div class="form-checkboxes">
+                <label><input type="checkbox" name="submits[]" value="policy" required><?php echo $Lang['Form']['check']['confidence']; ?></label>
+                <label><input type="checkbox" name="submits[]" value="news"><?php echo $Lang['Form']['check']['notifications']; ?></label>
             </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['phone'] ?>
-                    <input type="number" name="quest_photo" required>
-                </label>
-            </div>
-            <div>
-                <div class="form-kitten-photo" id="catImage" style="style='background-image: url(<?php echo $kittenPhoto ?>)'"></div>
-            </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['extra_pets'] ?>
-                    <input type="text" name="q1" required>
-                </label>
-            </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['food'] ?>
-                    <input type="text" name="q2" required>
-                </label>
-            </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['children'] ?>
-                    <input type="text" name="q3">
-                </label>
-            </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['your_q'] ?>
-                    <input type="text" name="q4">
-                </label>
-            </div>
-            <div>
-                <label><?php echo $Lang['Form']['field']['chosen_pet'] ?>
-                    <select id="catSelect" onchange="changeImage()">
-                        <?php
-                            $opt = '';
-                            foreach ($kittens as $kitten){
-                               $opt .= "<option value='{$kitten['id']}'>{$Lang['Kittens'][$kitten['id']]['name']}</option>";
-                            }
-                            echo $opt;
-                        ?>
-                    </select>
-                </label>
+            <div class="form-buttons">
+                <button class="btn btn-white btn-clear btn-md"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
+                <button class="btn btn-blue btn-md" type="submit"><a><?php echo $Lang['Buttons']['send']; ?></a></button>
             </div>
         </form>
+    </div>
     </div>
 </div>
 <script>
