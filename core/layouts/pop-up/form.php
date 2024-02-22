@@ -37,7 +37,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 </div>
                 <div>
                     <label><?php echo $Lang['Form']['field']['phone'] ?>
-                        <input type="text" name="phone_number" required>
+                        <input type="text" name="phone" required>
                     </label>
                 </div>
                 <div>
@@ -78,8 +78,8 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 </div>
             </div>
             <div class="form-checkboxes">
-                <label><input type="checkbox" name="submit1" value="policy" required><?php echo $Lang['Form']['check']['confidence']; ?></label>
-                <label><input type="checkbox" name="submit2" value="news"><?php echo $Lang['Form']['check']['notifications']; ?></label>
+                <label><input type="checkbox" name="policy" value="1"><?php echo $Lang['Form']['check']['confidence']; ?></label>
+                <label><input type="checkbox" name="news" value="1"><?php echo $Lang['Form']['check']['notifications']; ?></label>
             </div>
             <div class="form-buttons">
                 <button class="btn btn-white btn-clear btn-md"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
