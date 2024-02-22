@@ -27,9 +27,10 @@ $(document).ready(function(){
     PopUpHide();
 });
 //Функция отображения PopUp
-function PopUpShow(){
+function PopUpShow(value){
+    $('html, body').scrollTop(0);
     $("#popup1").show();
-    $("#hiddenInput").val(value);
+    $("#catSelect").val(value);
 }
 
 //Функция скрытия PopUp
