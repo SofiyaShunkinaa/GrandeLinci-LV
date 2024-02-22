@@ -16,7 +16,9 @@ $Lang = array(
             6 => "Contacts",
             7 => "Girls",
             8 => "Boys",
-            9 => "Test"
+            9 => "Test",
+            18 => "kittens",
+            19 => "girls"
         ),
         "secondary" => array(
             10 => "Riga, Latvia",
@@ -272,7 +274,9 @@ The period of maximum physical activity for this breed is in the first five year
         "choose_kit" => "Choose kitten",
         "learn_more" => "Learn more",
         "buy_me" => "Buy me",
-        "view_more" => "View more"
+        "view_more" => "View more",
+        "clear" => "Clear form",
+        "send" => "Send form"
     ],
 
     "sex_filter" => [

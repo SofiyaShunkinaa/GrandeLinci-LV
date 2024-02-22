@@ -273,7 +273,9 @@ Attiecībā uz šīs šķirnes mūsdienu pārstāvjiem Eiropas audzētāju aizra
         "choose_kit" => "Izvēlēties kaķēnu",
         "learn_more" => "Uzzināt vairāk",
         "buy_me" => "Pirkt mani",
-        "view_more" => "Apskatīt vairāk"
+        "view_more" => "Apskatīt vairāk",
+        "clear" => "Clear form",
+        "send" => "Send form"
     ],
 
     "sex_filter" => [
