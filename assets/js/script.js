@@ -42,45 +42,56 @@ function openPopup(value) {
 }
 
 // BUTTON SUBMIT
-$('#submit-btn').click(function (e){
+$('input').bind('blur', function(e){
     e.preventDefault();
+    $('input').each(function(){
+        $(this).removeClass('error_field');
+    });
+
 
     let name = $('input[name="name"]').val(),
         email = $('input[name="email"]').val(),
-        phone = $('input[name="phone_number"]').val(),
+        phone = $('input[name="phone"]').val(),
         q1 = $('input[name="q1"]').val(),
         q2 = $('input[name="q2"]').val(),
         q3 = $('input[name="q3"]').val(),
         q4 = $('input[name="q4"]').val(),
         kit_id = $('#catSelect').val(),
-        submit1 = $('input[name="submit1"]').val(),
-        submit2 = $('input[name="submit2"]').val();
-
-    let formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('q1', q1);
-    formData.append('q2', q2);
-    formData.append('q3', q3);
-    formData.append('q4', q4);
-    formData.append('kit_id', kit_id);
-    formData.append('submit1', submit1);
-    formData.append('submit2', submit2);
+        submit1 = $('input[name="policy"]').val(),
+        submit2 = $('input[name="news"]').val();
 
     $.ajax({
         url: 'core/layouts/pop-up/get_data.php',
         type: 'POST',
         dataType: 'json',
-        data: formData,
+        data: {
+            email: email,
+            name: name,
+            phone: phone,
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            kit_id: kit_id,
+            submit1: submit1,
+            submit2: submit2
+        },
         success (data) {
 
             if(data.status){
-                console.log("nice!")
+                $(`input`).removeClass('error-field');
+                $('.error').addClass('none');
+                console.log("success")
             }else{
-                console.log(data.field);
+                if(data.type === 1){
+                    data.fields.forEach(function (field){
+                        $(`input[name="${field}"]`).addClass('error-field');
+                    })
+                }
                 $('.error').removeClass('none').text(data.field);
             }
         }
     })
 });
+
+
