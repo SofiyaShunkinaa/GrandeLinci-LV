@@ -649,7 +649,7 @@ footer a{
 
 .btn a{
     font-weight: 600;
-    color: white;
+    color: white !important;
     text-decoration: none;
 }
 
@@ -965,4 +965,118 @@ footer a{
     z-index: -1;
     top: 4150;
     right: 50;
+}
+
+.popup-container{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    height: 2000px;
+    padding-top: 100px;
+}
+
+.form-container{
+    margin: 0 auto;
+    background: #EBF6FB;
+    border-radius: 50px;
+    padding: 64px 82px;
+}
+
+.form-header--left .title-container{
+    margin: 0;
+    align-items: start;
+}
+
+.form-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-cross{
+    width: 35px;
+    height: 2px;
+    background: var(--a-gray);
+}
+
+.item-cross:nth-of-type(1){
+    rotate: 45deg;
+}
+
+.item-cross:nth-of-type(2){
+    rotate: 135deg;
+}
+
+.form-body{
+    margin-top: 68px;
+}
+
+input, form.kitten-form select{
+    height: 50px;
+    border-radius: 17px;
+    border: 2px solid var(--a-dark-blue);
+    padding-left: 15px;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, auto);
+    grid-row-gap: 54px;
+    grid-column-gap: 35px;
+}
+
+form div:nth-of-type(4){
+    grid-row: 2/5;
+}
+
+form div:nth-of-type(5), form div:nth-of-type(6), form div:nth-of-type(7), form div:nth-of-type(8){
+    grid-column: 2/4;
+}
+
+form div:nth-of-type(9){
+    grid-row: 5/6;
+}
+
+form div:nth-of-type(4) div{
+    width: 100%;
+    height: 100%;
+    border-radius: 17px;
+}
+
+.form-checkboxes label{
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-checkboxes{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+.btn-white{
+    background: white;
+}
+
+.btn-white a{
+    color: var(--a-dark-blue) !important;
+}
+
+.form-buttons .btn-white{
+    margin-right: 32px;
+}
+
+.btn-white a:hover{
+    color: var(--a-dark-blue) !important;
+}
+
+.btn-white:hover{
+    background: var(--a-lightblue);
 }
