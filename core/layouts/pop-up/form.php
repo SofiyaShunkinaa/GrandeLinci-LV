@@ -18,26 +18,26 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
     <div class="form-header">
         <div class="form-header--left">
             <?php echo title($Lang['Form']['title'])?>
-            <p class="error"></p>
+            <p class="error none"></p>
         </div>
         <div class="form-header--right"><a href="javascript:PopUpHide()"><img src="/assets/images/cross.png"></a></div>
     </div>
     <div class="form-body">
-        <form action="form.php" method="post" class="kitten-form">
+        <form class="kitten-form">
             <div class="form-grid">
                 <div>
                     <label><?php echo $Lang['Form']['field']['name'] ?>
-                        <input type="text" name="quest_name" required>
+                        <input type="text" name="name" required>
                     </label>
                 </div>
                 <div>
                     <label><?php echo $Lang['Form']['field']['email'] ?>
-                        <input type="email" name="quest_email" required>
+                        <input type="email" name="email" required>
                     </label>
                 </div>
                 <div>
                     <label><?php echo $Lang['Form']['field']['phone'] ?>
-                        <input type="number" name="quest_photo" required>
+                        <input type="text" name="phone_number" required>
                     </label>
                 </div>
                 <div>
@@ -78,12 +78,12 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 </div>
             </div>
             <div class="form-checkboxes">
-                <label><input type="checkbox" name="submits[]" value="policy" required><?php echo $Lang['Form']['check']['confidence']; ?></label>
-                <label><input type="checkbox" name="submits[]" value="news"><?php echo $Lang['Form']['check']['notifications']; ?></label>
+                <label><input type="checkbox" name="submit1" value="policy" required><?php echo $Lang['Form']['check']['confidence']; ?></label>
+                <label><input type="checkbox" name="submit2" value="news"><?php echo $Lang['Form']['check']['notifications']; ?></label>
             </div>
             <div class="form-buttons">
                 <button class="btn btn-white btn-clear btn-md"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
-                <button class="btn btn-blue btn-md" type="submit"><a><?php echo $Lang['Buttons']['send']; ?></a></button>
+                <button class="btn btn-blue btn-md" id="submit-btn" type="submit"><a><?php echo $Lang['Buttons']['send']; ?></a></button>
             </div>
         </form>
     </div>
