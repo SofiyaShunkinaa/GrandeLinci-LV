@@ -41,7 +41,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                     </label>
                 </div>
                 <div>
-                    <div class="form-kitten-photo" id="catImage" style="background-image: url(<?php echo $kittenPhoto ?>)"></div>
+                    <div class="form-kitten-photo" id="catImage" ></div>
                 </div>
                 <div>
                     <label><?php echo $Lang['Form']['field']['extra_pets'] ?>
@@ -65,9 +65,9 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 </div>
                 <div>
                     <label><?php echo $Lang['Form']['field']['chosen_pet'] ?>
-                        <select id="catSelect" onchange="changeImage()">
-                            <?php
-                                $opt = '';
+                        <?php
+                                $data = json_encode($kittens);
+                                $opt = "<select id='catSelect' data-kittens='$data'  onchange='getKitId()'>";
                                 foreach ($kittens as $kitten){
                                    $opt .= "<option value='{$kitten['id']}'>{$Lang['Kittens'][$kitten['id']]['name']}</option>";
                                 }
@@ -82,7 +82,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 <label><input type="checkbox" name="news" value="1"><?php echo $Lang['Form']['check']['notifications']; ?></label>
             </div>
             <div class="form-buttons">
-                <button class="btn btn-white btn-clear btn-md"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
+                <button class="btn btn-white btn-clear btn-md" id="clear-btn"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
                 <button class="btn btn-blue btn-md" id="submit-btn" type="submit"><a><?php echo $Lang['Buttons']['send']; ?></a></button>
             </div>
         </form>
