@@ -78,8 +78,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                 </div>
             </div>
             <div class="form-checkboxes">
-                <label><input type="checkbox" name="policy" value="1"><?php echo $Lang['Form']['check']['confidence']; ?></label>
-                <label><input type="checkbox" name="news" value="1"><?php echo $Lang['Form']['check']['notifications']; ?></label>
+                <label><input type="checkbox" name="policy" id="policyCheckbox"><?php echo $Lang['Form']['check']['confidence']; ?></label>
             </div>
             <div class="form-buttons">
                 <button class="btn btn-white btn-clear btn-md" id="clear-btn"><a><?php echo $Lang['Buttons']['clear']; ?></a></button>
