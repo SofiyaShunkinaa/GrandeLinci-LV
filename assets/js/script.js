@@ -44,7 +44,6 @@ function PopUpShow(value){
     $("#popup1").show();
     $("#catSelect").val(value);
     getKitId()
-    
 }
 
 function PopUpHide(){
@@ -72,9 +71,7 @@ $('input').bind('blur', function(e){
         q2 = $('input[name="q2"]').val(),
         q3 = $('input[name="q3"]').val(),
         q4 = $('input[name="q4"]').val(),
-        kit_id = $('#catSelect').val(),
-        submit1 = $('input[name="policy"]').val(),
-        submit2 = $('input[name="news"]').val();
+        kit_id = $('#catSelect').val();
 
     $.ajax({
         url: 'core/layouts/pop-up/get_data.php',
@@ -88,19 +85,25 @@ $('input').bind('blur', function(e){
             q2: q2,
             q3: q3,
             q4: q4,
-            kit_id: kit_id,
-            submit1: submit1,
-            submit2: submit2
+            kit_id: kit_id
         },
         success (data) {
 
             if(data.status){
-                $(`input`).removeClass('error-field');
-                $('.error').addClass('none');
-                data.successed.forEach(function (field){
-                    $(`input[name="${field}"]`).addClass('success-field');
-                })
-                console.log("success")
+                $('.form-checkboxes').css({'color' : 'var(--a-gray)'});
+                let checkbox = $('input[name="policy"]')
+                if(checkbox.prop('checked')) {
+                    $(`input`).removeClass('error-field');
+                    $('.error').addClass('none');
+                    data.successed.forEach(function (field) {
+                        $(`input[name="${field}"]`).addClass('success-field');
+                    })
+                    $('#submit-btn').prop('disabled', false)
+                    console.log("success")
+                }
+                else{
+                    $('.form-checkboxes').css({'color' : "red"});
+                }
             }else{
                 if(data.type === 1){
                     data.fields.forEach(function (field){
@@ -111,6 +114,14 @@ $('input').bind('blur', function(e){
                     $(`input[name="${field}"]`).addClass('success-field');
                 })
                 $('.error').removeClass('none').text(data.field);
+                $('#submit-btn').prop('disabled', true)
+                let checkbox = $('input[name="policy"]')
+                if(checkbox.prop('checked')) {
+                    $('.form-checkboxes').css({'color' : 'var(--a-gray)'});
+                }
+                else{
+                    $('.form-checkboxes').css({'color' : "red"});
+                }
             }
         }
     })
@@ -128,9 +139,9 @@ $('#clear-btn').click(function (e){
     $('input[name="q3"]').val('')
     $('input[name="q4"]').val('')
     $('#catSelect').val(1)
-    // $('input[name="policy"]').val('')
-    // $('input[name="news"]').val('')
-    console.log("wow")
+
+
 })
+
 
 
