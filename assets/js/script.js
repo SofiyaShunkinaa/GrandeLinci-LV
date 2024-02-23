@@ -43,6 +43,8 @@ function PopUpShow(value){
     $('html, body').scrollTop(0);
     $("#popup1").show();
     $("#catSelect").val(value);
+    getKitId()
+    
 }
 
 function PopUpHide(){
@@ -52,7 +54,6 @@ function PopUpHide(){
 function openPopup(value) {
     var url = "/core/layouts/pop-up/form.php" ;
     window.open(url, "Popup", "width=400, height=400");
-    getKitId()
 }
 
 // BUTTON SUBMIT
