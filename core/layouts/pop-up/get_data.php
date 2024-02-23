@@ -8,8 +8,6 @@ $q2 = $_POST['q2'];
 $q3 = isset($_POST['q3']) ? $_POST['q3'] : '';
 $q4 = isset($_POST['q4']) ? $_POST['q4'] : '';
 $kit_id = $_POST['kit_id'];
-$submit1 = isset($_POST['submit1']) ? $_POST['submit1'] : '';
-$submit2 = isset($_POST['submit2']) ? $_POST['submit2'] : '';
 
 
 $error_fields = [];
