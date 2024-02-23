@@ -13,35 +13,50 @@ $submit2 = isset($_POST['submit2']) ? $_POST['submit2'] : '';
 
 
 $error_fields = [];
+$successed_fields =[];
 
 if($name === '' || !preg_match("/^[a-zA-Z\s\-]+$/", $name)){
     $error_fields[] = 'name';
+}
+else{
+    $successed_fields[] = 'name';
 }
 
 if($email === '' || !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i", $email)){
     $error_fields[] = 'email';
 }
+else{
+    $successed_fields[] = 'email';
+}
 
 if($phone === '' || !preg_match("/^(\+?\d{1,3}\s?)?\(?\d{1,4}\)?[\s.-]?\d{1,4}[\s.-]?\d{1,9}$/", $phone)){
     $error_fields[] = 'phone';
+}
+else{
+    $successed_fields[] = 'phone';
 }
 
 if($q1 === ''){
     $error_fields[] = 'q1';
 }
+else{
+    $successed_fields[] = 'q1';
+}
 
 if($q2 === ''){
     $error_fields[] = 'q2';
 }
-
+else{
+    $successed_fields[] = 'q2';
+}
 
 if(empty($error_fields)){
     $response = [
     "status" => true,
-    "type" => 0
+    "type" => 0,
+    "successed" => $successed_fields
 ];
     echo json_encode($response);
-    
 
 }
 else{
@@ -49,7 +64,8 @@ else{
         "status" => false,
         "type" => 1,
         "field" => "Check fields",
-        "fields" => $error_fields
+        "fields" => $error_fields,
+        "successed" => $successed_fields
     ];
 
     echo json_encode($response);
