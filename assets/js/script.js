@@ -26,6 +26,19 @@ $(document).ready(function(){
     PopUpHide();
 });
 
+// SELECT ONCHANGE
+function getKitId() {
+    const selector = document.getElementById('catImage');
+    let kitId = document.getElementById('catSelect').value;
+    const data = JSON.parse(document.getElementById('catSelect').getAttribute('data-kittens'));
+
+    const selectedKitten = data.find(kitten => kitten.id === kitId);
+    if (selectedKitten) {
+        const img_path = selectedKitten.img_path;
+        selector.style.backgroundImage = "url('" + img_path + "')";
+    }
+}
+
 function PopUpShow(value){
     $('html, body').scrollTop(0);
     $("#popup1").show();
@@ -39,11 +52,13 @@ function PopUpHide(){
 function openPopup(value) {
     var url = "/core/layouts/pop-up/form.php" ;
     window.open(url, "Popup", "width=400, height=400");
+    getKitId()
 }
 
 // BUTTON SUBMIT
 $('input').bind('blur', function(e){
     e.preventDefault();
+
     $('input').each(function(){
         $(this).removeClass('error_field');
     });
@@ -81,6 +96,9 @@ $('input').bind('blur', function(e){
             if(data.status){
                 $(`input`).removeClass('error-field');
                 $('.error').addClass('none');
+                data.successed.forEach(function (field){
+                    $(`input[name="${field}"]`).addClass('success-field');
+                })
                 console.log("success")
             }else{
                 if(data.type === 1){
@@ -88,10 +106,30 @@ $('input').bind('blur', function(e){
                         $(`input[name="${field}"]`).addClass('error-field');
                     })
                 }
+                data.successed.forEach(function (field){
+                    $(`input[name="${field}"]`).addClass('success-field');
+                })
                 $('.error').removeClass('none').text(data.field);
             }
         }
     })
 });
+
+// BUTTON CLEAR
+$('#clear-btn').click(function (e){
+    e.preventDefault();
+
+    $('input[name="name"]').val('')
+    $('input[name="email"]').val('')
+    $('input[name="phone"]').val('')
+    $('input[name="q1"]').val('')
+    $('input[name="q2"]').val('')
+    $('input[name="q3"]').val('')
+    $('input[name="q4"]').val('')
+    $('#catSelect').val(1)
+    // $('input[name="policy"]').val('')
+    // $('input[name="news"]').val('')
+    console.log("wow")
+})
 
 
