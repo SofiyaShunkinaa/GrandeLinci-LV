@@ -86,10 +86,41 @@ function add_mainmenu_item($name, $itemLink, $parentId, $customClass, $langRu, $
     $Lang['Header']['main_menu'][$index] = $langLv;
     $serializedArray = serialize($Lang);
     file_put_contents('lang/lang_lv.txt', $serializedArray);
-    
+
     include("lang/lang_".$curLang.".php");
 }
 
+function add_cat($name, $dateOfBirth, $idColor, $idPattern, $idSex, $imgPath, $nameRu, $descRu, $titlesRu, $testsRu, $nameEn, $descEn, $titlesEn, $testsEn, $nameLv, $descLv, $titlesLv, $testsLv, $curLang){
+    $query = "INSERT INTO cats (`name`, `date_of_birth`, `id_color`, `id_pattern`, `id_sex`, `img_path`) VALUES ('$name', '$dateOfBirth', '$idColor', '$idPattern', '$idSex', '$imgPath')";
+    $this->run($query);
+    $index = $this->getLastInsertedId();
+
+    include("lang/lang_ru.php");
+    $Lang['Cats'][$index]['name'] = $nameRu;
+    $Lang['Cats'][$index]['desc'] = $descRu;
+    $Lang['Cats'][$index]['titles'] = $titlesRu;
+    $Lang['Cats'][$index]['tests'] = $testsRu;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_ru.txt', $serializedArray);
+
+    include("lang/lang_en.php");
+    $Lang['Cats'][$index]['name'] = $nameEn;
+    $Lang['Cats'][$index]['desc'] = $descEn;
+    $Lang['Cats'][$index]['titles'] = $titlesEn;
+    $Lang['Cats'][$index]['tests'] = $testsEn;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_en.txt', $serializedArray);
+
+    include("lang/lang_lv.php");
+    $Lang['Cats'][$index]['name'] = $nameLv;
+    $Lang['Cats'][$index]['desc'] = $descLv;
+    $Lang['Cats'][$index]['titles'] = $titlesLv;
+    $Lang['Cats'][$index]['tests'] = $testsLv;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_lv.txt', $serializedArray);
+
+    include("lang/lang_".$curLang.".php");
+}
 
 function stop() {
 unset($this->data);
