@@ -122,6 +122,37 @@ function add_cat($name, $dateOfBirth, $idColor, $idPattern, $idSex, $imgPath, $n
     include("lang/lang_".$curLang.".php");
 }
 
+
+function add_kitten($name, $price, $idSex, $age, $idMother, $idFather, $idColor, $idPattern, $imgPath, $nameRu, $castrationRu, $sellingRu, $nameEn, $castrationEn, $sellingEn, $nameLv, $castrationLv, $sellingLv, $curLang){
+    $query = "INSERT INTO kittens (`name`, `price`, `id_sex`, `age`, `id_mother`, `id_father`, `id_color`, `id_pattern`, `img_path`) VALUES ('$name', '$price', '$idSex', '$age', '$idMother', '$idFather', '$idColor', '$idPattern', '$imgPath')";
+    $this->run($query);
+    $index = $this->getLastInsertedId();
+
+    include("lang/lang_ru.php");
+    $Lang['Kittens'][$index]['name'] = $nameRu;
+    $Lang['Kittens'][$index]['castration'] = $castrationRu;
+    $Lang['Kittens'][$index]['selling'] = $sellingRu;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_ru.txt', $serializedArray);
+
+    include("lang/lang_en.php");
+    $Lang['Kittens'][$index]['name'] = $nameEn;
+    $Lang['Kittens'][$index]['castration'] = $castrationEn;
+    $Lang['Kittens'][$index]['selling'] = $sellingEn;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_en.txt', $serializedArray);
+
+    include("lang/lang_lv.php");
+    $Lang['Kittens'][$index]['name'] = $nameLv;
+    $Lang['Kittens'][$index]['castration'] = $castrationLv;
+    $Lang['Kittens'][$index]['selling'] = $sellingLv;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_lv.txt', $serializedArray);
+
+    include("lang/lang_".$curLang.".php");
+}
+
+
 function stop() {
 unset($this->data);
 unset($this->result);
