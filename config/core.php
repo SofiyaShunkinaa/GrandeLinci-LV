@@ -10,9 +10,9 @@ defined('INDEX') OR die('Прямой доступ к странице запр�
 // MYSQL
 class MyDB
 {
-var $dblogin = "root"; 
+var $dblogin = "root";
 var $dbpass = "root";
-var $db = "grandelinci"; 
+var $db = "grandelinci";
 var $dbhost="localhost";
 
 var $link;
@@ -24,8 +24,8 @@ var $fetch;
 
 function connect() {
     $this->link = mysqli_connect($this->dbhost, $this->dblogin, $this->dbpass);
-    mysqli_select_db($this->link, $this->db); 
-    mysqli_query($this->link, 'SET NAMES utf8'); 
+    mysqli_select_db($this->link, $this->db);
+    mysqli_query($this->link, 'SET NAMES utf8');
 }
 
 
@@ -56,6 +56,40 @@ function getNumberOfPages($Query, $itemsPerPage) {
     $numberOfPages = ceil($totalCount / $itemsPerPage);
     return $numberOfPages;
 }
+
+function insertRequest($name, $email, $phone, $kit_id, $q1, $q2, $q3, $q4) {
+    $query = "INSERT INTO booking_request (`user_name`, `email`, `phone_number`, `id_kitten`, `question1`, `question2`, `question3`, `question4`) VALUES ('$name', '$email', '$phone', '$kit_id', '$q1', '$q2', '$q3', '$q4')";
+    $this->run($query);
+}
+
+function getLastInsertedId() {
+    return mysqli_insert_id($this->link);
+}
+
+
+function add_mainmenu_item($name, $itemLink, $parentId, $customClass, $langRu, $langEn, $langLv, $curLang){
+    $query = "INSERT INTO main_menu (`name`, `link`, `parent_id`, `custom_class`) VALUES ('$name', '$itemLink', '$parentId', '$customClass')";
+    $this->run($query);
+    $index = $this->getLastInsertedId();
+
+    include("lang/lang_ru.php");
+    $Lang['Header']['main_menu'][$index] = $langRu;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_ru.txt', $serializedArray);
+
+    include("lang/lang_en.php");
+    $Lang['Header']['main_menu'][$index] = $langEn;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_en.txt', $serializedArray);
+
+    include("lang/lang_lv.php");
+    $Lang['Header']['main_menu'][$index] = $langLv;
+    $serializedArray = serialize($Lang);
+    file_put_contents('lang/lang_lv.txt', $serializedArray);
+    
+    include("lang/lang_".$curLang.".php");
+}
+
 
 function stop() {
 unset($this->data);
