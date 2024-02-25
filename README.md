@@ -26,14 +26,16 @@ If you have installed Php skip step 1.
 - <b>core/</b> - folder with all pages and functional elements like header  or footer.
 - <b>database/</b> - folder with MySql scripts for creating db, tables and inserting data.
 - <b>includes/</b> - folder with libraries and custom Php content.
-- <b>lang/</b> - folder with languages translation.
+- <b>lang/</b> - folder with languages translation (serialized).
 - index.php - the main controller file.
 - template.php - page-controlling file with common layout.
 
 
 ## Usage
 - To view the list of kittens, visit home page or page Available kittens.
-- To add a new kitten, go to the lang page to add information by same id in db.
+- To add a new kitten, go to the <i>/includes/add_items.php</i> and use <i>add_kitten(...)</i> function
+- To add a new cat, go to the <i>/includes/add_items.php</i> and use <i>add_kitten(...)</i> function
+- To add a new main menu, go to the <i>/includes/add_items.php</i> and use <i>add_mainmenu_item(...)</i> function
 
 
 ## Author
