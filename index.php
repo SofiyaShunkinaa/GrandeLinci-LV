@@ -47,12 +47,17 @@ $db = new MyDB();
 $db->connect();
 
 
+// ADD ITEMS
+include($_SERVER['DOCUMENT_ROOT']."/includes/add_items.php");
+
+
 // TEMPLATES INCLUDES
 require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/main-menu/default.php");
 
 include($_SERVER['DOCUMENT_ROOT']."/template.php");
 
 require_once($_SERVER['DOCUMENT_ROOT']."/core/layouts/footer/default.php");
+
 
 $db->close();
 
