@@ -1,1 +1,0 @@
-ALTER TABLE main_menu DROP COLUMN name;

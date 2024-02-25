@@ -1,1 +1,0 @@
-INSERT INTO `pages` (`page_id`, `page_alias`, `page_publish`) VALUES ('1', 'home', 'Y'), ('2', 'available_kittens', 'Y'), ('3', 'our_cats', 'Y'), ('4', 'photogallery', 'Y'), ('5', 'about_breed', 'Y'), ('6', 'contacts', 'Y');

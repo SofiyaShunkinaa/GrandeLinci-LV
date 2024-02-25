@@ -1,1 +1,0 @@
-INSERT INTO `sex` (`id`, `name`) VALUES ('1', 'male'), ('2', 'female');

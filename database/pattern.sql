@@ -1,1 +1,0 @@
-INSERT INTO `pattern` (`id`, `code_name`, `name`) VALUES ('1', '2', 'patterned');
