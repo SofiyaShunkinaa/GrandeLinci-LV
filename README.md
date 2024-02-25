@@ -34,8 +34,8 @@ If you have installed Php skip step 1.
 ## Usage
 - To view the list of kittens, visit home page or page Available kittens.
 - To add a new kitten, go to the <i>/includes/add_items.php</i> and use <i>add_kitten(...)</i> function
-- To add a new cat, go to the <i>/includes/add_items.php</i> and use <i>add_kitten(...)</i> function
-- To add a new main menu, go to the <i>/includes/add_items.php</i> and use <i>add_mainmenu_item(...)</i> function
+- To add a new cat, go to the <i>/includes/add_items.php</i> and use <i>add_cat(...)</i> function
+- To add a new main menu item, go to the <i>/includes/add_items.php</i> and use <i>add_mainmenu_item(...)</i> function
 
 
 ## Author
