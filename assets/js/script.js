@@ -63,7 +63,6 @@ $('input').bind('blur', function(e){
         $(this).removeClass('error_field');
     });
 
-
     let name = $('input[name="name"]').val(),
         email = $('input[name="email"]').val(),
         phone = $('input[name="phone"]').val(),
@@ -87,43 +86,38 @@ $('input').bind('blur', function(e){
             q4: q4,
             kit_id: kit_id
         },
-        success (data) {
-
-            if(data.status){
-                $('.form-checkboxes').css({'color' : 'var(--a-gray)'});
-                let checkbox = $('input[name="policy"]')
-                if(checkbox.prop('checked')) {
-                    $(`input`).removeClass('error-field');
-                    $('.error').addClass('none');
-                    data.successed.forEach(function (field) {
-                        $(`input[name="${field}"]`).addClass('success-field');
-                    })
-                    $('#submit-btn').prop('disabled', false)
-                    console.log("success")
-                }
-                else{
-                    $('.form-checkboxes').css({'color' : "red"});
-                }
-            }else{
-                if(data.type === 1){
-                    data.fields.forEach(function (field){
-                        $(`input[name="${field}"]`).addClass('error-field');
-                    })
-                }
-                data.successed.forEach(function (field){
-                    $(`input[name="${field}"]`).addClass('success-field');
-                })
+        success(data) {
+            if(data.status ) {
+                //$('.form-checkboxes').css({'color': 'var(--a-gray)'});
+                $('input').removeClass('error-field');
+                $('.error').addClass('none');
+                data.successed.forEach(function(field) {
+                    $('input[name="' + field + '"]').addClass('success-field');
+                });
+                console.log("success");
+            } else {
                 $('.error').removeClass('none').text(data.field);
-                $('#submit-btn').prop('disabled', true)
-                let checkbox = $('input[name="policy"]')
-                if(checkbox.prop('checked')) {
-                    $('.form-checkboxes').css({'color' : 'var(--a-gray)'});
-                }
-                else{
-                    $('.form-checkboxes').css({'color' : "red"});
-                }
+
+                // let checkbox = $('input[name="policy"]');
+                // if(checkbox.prop('checked')) {
+                //     $('.form-checkboxes').css({'color': 'var(--a-gray)'});
+                // }
+                // else {
+                //     $('.form-checkboxes').css({'color': 'red'});
+                //     $('.error').removeClass('none').text("Check policy privacy!");
+                // }
+
+                data.fields.forEach(function(field) {
+                    $('input[name="' + field + '"]').addClass('error-field');
+                });
+
+                data.successed.forEach(function(field) {
+                    $('input[name="' + field + '"]').addClass('success-field');
+                });
+
             }
         }
+
     })
 });
 

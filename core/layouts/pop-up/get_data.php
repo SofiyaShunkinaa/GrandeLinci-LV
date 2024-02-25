@@ -1,5 +1,6 @@
 <?php
 
+global $db;
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -49,11 +50,12 @@ else{
 }
 
 if(empty($error_fields)){
+
     $response = [
-    "status" => true,
-    "type" => 0,
-    "successed" => $successed_fields
-];
+        "status" => true,
+        "type" => 0,
+        "successed" => $successed_fields
+    ];
     echo json_encode($response);
 
 }
@@ -71,4 +73,9 @@ else{
     die();
 }
 
+if($response['status']){
+    //$db->insertRequest($name, $email, $phone, intval($kit_id), $q1, $q2, $q3, $q4);
+    $db->insertRequest("name", "email@ema.il", "+37585226", 1, "kioipm", "jiojmp", "jiojm", "uon");
+
+}
 
