@@ -13,7 +13,7 @@ If you have installed Php skip step 1.
 `*.exe` files are ready to use.
 - For other systems, see the [installation chapter](https://php.net/install).
 2. Download all the project files to your local computer.
-3. Use files in <i>database/</i> directory to create database in your database management system (for example, phpMyAdmin).
+3. Use latest db backup in <i>database/</i> directory to create database in your database management system (for example, phpMyAdmin).
 4. Configure the database connection in the file <i>config/core.php</i>, specify the host, username, password, and database name.
 5. Start the web server (for example, Apache) and make sure that PHP is working correctly.
 
