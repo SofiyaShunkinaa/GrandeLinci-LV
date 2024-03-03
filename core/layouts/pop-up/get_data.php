@@ -13,49 +13,56 @@ $kit_id = $_POST['kit_id'];
 
 $error_fields = [];
 $successed_fields =[];
-
-if($name === '' || !preg_match("/^[a-zA-Z\s\-]+$/", $name)){
-    $error_fields[] = 'name';
-}
-else{
-    $successed_fields[] = 'name';
-}
-
-if($email === '' || !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i", $email)){
-    $error_fields[] = 'email';
-}
-else{
-    $successed_fields[] = 'email';
-}
-
-if($phone === '' || !preg_match("/^(\+?\d{1,3}\s?)?\(?\d{1,4}\)?[\s.-]?\d{1,4}[\s.-]?\d{1,9}$/", $phone)){
-    $error_fields[] = 'phone';
-}
-else{
-    $successed_fields[] = 'phone';
-}
-
-if($q1 === ''){
-    $error_fields[] = 'q1';
-}
-else{
-    $successed_fields[] = 'q1';
-}
+$message = '';
 
 if($q2 === ''){
     $error_fields[] = 'q2';
+    $message = "Empty field 2";
 }
 else{
     $successed_fields[] = 'q2';
 }
 
+if($q1 === ''){
+    $error_fields[] = 'q1';
+    $message = "Empty field 1";
+}
+else{
+    $successed_fields[] = 'q1';
+}
+
+if($phone === '' || !preg_match("/^(\+?\d{1,3}\s?)?\(?\d{1,4}\)?[\s.-]?\d{1,4}[\s.-]?\d{1,9}$/", $phone)){
+    $error_fields[] = 'phone';
+    $message = "Incorrect phone";
+}
+else{
+    $successed_fields[] = 'phone';
+}
+
+if($email === '' || !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i", $email)){
+    $error_fields[] = 'email';
+    $message = "Incorrect email";
+}
+else{
+    $successed_fields[] = 'email';
+}
+
+if($name === '' || !preg_match("/^[a-zA-Z\s\-]+$/", $name)){
+    $error_fields[] = 'name';
+    $message = "Incorrect name";
+}
+else{
+    $successed_fields[] = 'name';
+}
+
+
 if(empty($error_fields)){
 
     $response = [
         "status" => true,
-        "type" => 0,
         "successed" => $successed_fields
     ];
+
     echo json_encode($response);
 
 }
@@ -63,7 +70,7 @@ else{
     $response = [
         "status" => false,
         "type" => 1,
-        "field" => "Check fields",
+        "field" => $message,
         "fields" => $error_fields,
         "successed" => $successed_fields
     ];
@@ -73,9 +80,9 @@ else{
     die();
 }
 
-if($response['status']){
-    //$db->insertRequest($name, $email, $phone, intval($kit_id), $q1, $q2, $q3, $q4);
-    $db->insertRequest("name", "email@ema.il", "+37585226", 1, "kioipm", "jiojmp", "jiojm", "uon");
-
-}
+//if($response['status']){
+//    //$db->insertRequest($name, $email, $phone, intval($kit_id), $q1, $q2, $q3, $q4);
+//    $db->insertRequest("name", "email@ema.il", "+37585226", 1, "kioipm", "jiojmp", "jiojm", "uon");
+//
+//}
 
