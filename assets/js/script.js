@@ -56,14 +56,10 @@ function openPopup(value) {
 }
 
 // BUTTON SUBMIT
-$('input').bind('blur', function(e){
-    e.preventDefault();
+$('input').on('blur', function() {
 
-    $('input').each(function(){
-        $(this).removeClass('error_field');
-    });
-
-    let name = $('input[name="name"]').val(),
+    // Получение данных из полей
+    var name = $('input[name="name"]').val(),
         email = $('input[name="email"]').val(),
         phone = $('input[name="phone"]').val(),
         q1 = $('input[name="q1"]').val(),
@@ -87,25 +83,15 @@ $('input').bind('blur', function(e){
             kit_id: kit_id
         },
         success(data) {
-            if(data.status ) {
-                //$('.form-checkboxes').css({'color': 'var(--a-gray)'});
-                $('input').removeClass('error-field');
-                $('.error').addClass('none');
+            if (data.status) {
+                // Валидация успешна
                 data.successed.forEach(function(field) {
                     $('input[name="' + field + '"]').addClass('success-field');
                 });
-                console.log("success");
+                console.log("Validation success");
             } else {
+                // Валидация не успешна - обработка ошибок
                 $('.error').removeClass('none').text(data.field);
-
-                // let checkbox = $('input[name="policy"]');
-                // if(checkbox.prop('checked')) {
-                //     $('.form-checkboxes').css({'color': 'var(--a-gray)'});
-                // }
-                // else {
-                //     $('.form-checkboxes').css({'color': 'red'});
-                //     $('.error').removeClass('none').text("Check policy privacy!");
-                // }
 
                 data.fields.forEach(function(field) {
                     $('input[name="' + field + '"]').addClass('error-field');
@@ -114,12 +100,13 @@ $('input').bind('blur', function(e){
                 data.successed.forEach(function(field) {
                     $('input[name="' + field + '"]').addClass('success-field');
                 });
+                console.log("Validation not success");
 
             }
         }
-
-    })
+    });
 });
+
 
 // BUTTON CLEAR
 $('#clear-btn').click(function (e){
