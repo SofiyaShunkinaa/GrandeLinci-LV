@@ -55,10 +55,11 @@ function openPopup(value) {
     window.open(url, "Popup", "width=400, height=400");
 }
 
-// BUTTON SUBMIT
+// AJAX VALIDATION
 $('input').on('blur', function() {
+    $('#submit-btn').prop('disabled', true);
 
-    // Получение данных из полей
+
     var name = $('input[name="name"]').val(),
         email = $('input[name="email"]').val(),
         phone = $('input[name="phone"]').val(),
@@ -80,17 +81,32 @@ $('input').on('blur', function() {
             q2: q2,
             q3: q3,
             q4: q4,
-            kit_id: kit_id
+            kit_id: kit_id,
         },
         success(data) {
             if (data.status) {
-                // Валидация успешна
-                data.successed.forEach(function(field) {
-                    $('input[name="' + field + '"]').addClass('success-field');
-                });
-                console.log("Validation success");
+                if($("input[name='policy']").prop('checked')) {
+                    data.successed.forEach(function (field) {
+                        $('input[name="' + field + '"]').addClass('success-field');
+                    });
+                    console.log("Validation success");
+                    console.log($("input[name='policy']").prop('checked'));
+                    $('#submit-btn').prop('disabled', false);
+                    $('.error').addClass('none');
+
+
+                }
+                else{
+                    $('.error').removeClass('none').text("Check privacy policy");
+                    $('#submit-btn').prop('disabled', true);
+
+                }
+
             } else {
-                // Валидация не успешна - обработка ошибок
+                if(!$("input[name='policy']").prop('checked')){
+                    $('.error').removeClass('none').text("Check privacy policy");
+                }
+
                 $('.error').removeClass('none').text(data.field);
 
                 data.fields.forEach(function(field) {
@@ -100,12 +116,58 @@ $('input').on('blur', function() {
                 data.successed.forEach(function(field) {
                     $('input[name="' + field + '"]').addClass('success-field');
                 });
-                console.log("Validation not success");
+                $('#submit-btn').prop('disabled', true);
+
+
 
             }
         }
     });
 });
+
+// BUTTON SUBMIT
+function submitForm() {
+    var name = $('input[name="name"]').val(),
+        email = $('input[name="email"]').val(),
+        phone = $('input[name="phone"]').val(),
+        q1 = $('input[name="q1"]').val(),
+        q2 = $('input[name="q2"]').val(),
+        q3 = $('input[name="q3"]').val(),
+        q4 = $('input[name="q4"]').val(),
+        kit_id = $('#catSelect').val();
+
+    $.ajax({
+        url: 'core/layouts/pop-up/insert.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            email: email,
+            name: name,
+            phone: phone,
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            kit_id: kit_id,
+        },
+        success: function(response) {
+            if (response.status) {
+                console.log("Data processed successfully");
+                // Можете выполнить дополнительные действия при успешной обработке данных
+            } else {
+                console.error("Failed to process data");
+                alert("Failed to process data")
+            }
+        }
+    });
+}
+
+// Добавьте обработчик события для кнопки submit
+$('#submit-btn').on('click', function(event) {
+    event.preventDefault();
+    submitForm();
+});
+
 
 
 // BUTTON CLEAR
@@ -120,7 +182,6 @@ $('#clear-btn').click(function (e){
     $('input[name="q3"]').val('')
     $('input[name="q4"]').val('')
     $('#catSelect').val(1)
-
 
 })
 
