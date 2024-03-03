@@ -126,7 +126,8 @@ $('input').on('blur', function() {
 });
 
 // BUTTON SUBMIT
-function submitForm() {
+$('#submit-btn').on('click', function(event) {
+    event.preventDefault();
     var name = $('input[name="name"]').val(),
         email = $('input[name="email"]').val(),
         phone = $('input[name="phone"]').val(),
@@ -135,6 +136,7 @@ function submitForm() {
         q3 = $('input[name="q3"]').val(),
         q4 = $('input[name="q4"]').val(),
         kit_id = $('#catSelect').val();
+    console.log("sooo")
 
     $.ajax({
         url: 'core/layouts/pop-up/insert.php',
@@ -150,22 +152,17 @@ function submitForm() {
             q4: q4,
             kit_id: kit_id,
         },
-        success: function(response) {
-            if (response.status) {
-                console.log("Data processed successfully");
-                // Можете выполнить дополнительные действия при успешной обработке данных
-            } else {
-                console.error("Failed to process data");
-                alert("Failed to process data")
+        success(data){
+            if (data.status){
+                alert("Success!")
             }
+            else{
+                alert("Fail!")
+            }
+            console.log(data.mes)
         }
     });
-}
 
-// Добавьте обработчик события для кнопки submit
-$('#submit-btn').on('click', function(event) {
-    event.preventDefault();
-    submitForm();
 });
 
 
