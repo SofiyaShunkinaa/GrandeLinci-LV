@@ -1,6 +1,5 @@
 <?php
 
-global $db;
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -9,7 +8,6 @@ $q2 = $_POST['q2'];
 $q3 = isset($_POST['q3']) ? $_POST['q3'] : '';
 $q4 = isset($_POST['q4']) ? $_POST['q4'] : '';
 $kit_id = $_POST['kit_id'];
-
 
 $error_fields = [];
 $successed_fields =[];
@@ -65,6 +63,7 @@ if(empty($error_fields)){
 
     echo json_encode($response);
 
+
 }
 else{
     $response = [
@@ -80,9 +79,9 @@ else{
     die();
 }
 
-//if($response['status']){
+//if($response['status'] == true){
 //    //$db->insertRequest($name, $email, $phone, intval($kit_id), $q1, $q2, $q3, $q4);
-//    $db->insertRequest("name", "email@ema.il", "+37585226", 1, "kioipm", "jiojmp", "jiojm", "uon");
+//$db->insertRequest("name1", "email@ema.il", "+37585226", 1, "kioipm", "jiojmp", "jiojm", "uon");
 //
 //}
 
