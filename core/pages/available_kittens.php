@@ -82,7 +82,7 @@ $db->stop();
                         <div class='doubled-field'><p>{$Lang['Cards']['kittens']['father']}</p><p>Grande Linci *LV {$Lang['Cats'][$cat['id_father']]['name']}</p></div>
                         <div class='doubled-field'><p>{$Lang['Cards']['kittens']['castration']}</p><p>{$Lang['Kittens'][$cat['id']]['castration']}</p></div>
                         <div class='doubled-field'><p>{$Lang['Cards']['kittens']['selling']}</p><p>{$Lang['Kittens'][$cat['id']]['selling']}</p></div>
-                        </div><div class='cat-btn-container' ><button class='btn btn-blue btn-md'><a href='#'>{$Lang['Buttons']['buy_me']}</a></button></div></div></div>";
+                        </div><div class='cat-btn-container' ><button class='btn btn-blue btn-md'><a href='javascript:PopUpShow({$cat['id']})'>{$Lang['Buttons']['buy_me']}</a></button></div></div></div>";
                 }
                 echo $card;
                 ?>
@@ -96,3 +96,6 @@ $db->stop();
         </div>
     </div>
 </div>
+
+<?php require($_SERVER['DOCUMENT_ROOT'].'/core/layouts/pop-up/form.php');
+
