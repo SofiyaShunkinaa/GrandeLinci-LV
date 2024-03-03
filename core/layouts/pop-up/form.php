@@ -23,7 +23,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
         <div class="form-header--right"><a href="javascript:PopUpHide()"><img src="/assets/images/cross.png"></a></div>
     </div>
     <div class="form-body">
-        <form class="kitten-form">
+        <form class="kitten-form" method="post">
             <div class="form-grid">
                 <div>
                     <label><?php echo $Lang['Form']['field']['name'] ?>
@@ -88,6 +88,9 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
     </div>
     </div>
 </div>
+
+
+
 <script>
     function changeImage() {
         var catId = document.getElementById('catSelect').value;
