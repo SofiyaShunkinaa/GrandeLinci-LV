@@ -13,11 +13,8 @@ document.addEventListener('click', function(event) {
 
 //HOMEPAGE SLIDER
 const url = window.location.href;
-const urlParams = new URLSearchParams(url);
-console.log(urlParams.has('option'));
-console.log(urlParams.get('option') === 'home')
-if (urlParams.has('option') && urlParams.get('option') === 'home') {
-
+console.log(url.includes('home'))
+if (url.includes('home')) {
     var splide = new Splide('.splide', {
         perPage: 2,
         type: 'loop',
@@ -27,7 +24,6 @@ if (urlParams.has('option') && urlParams.get('option') === 'home') {
 
     splide.mount();
 }
-
 
 
 //POPUP
