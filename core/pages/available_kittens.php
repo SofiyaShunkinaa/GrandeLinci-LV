@@ -96,6 +96,7 @@ $db->stop();
         </div>
     </div>
 </div>
+</div>
 
 <?php require($_SERVER['DOCUMENT_ROOT'].'/core/layouts/pop-up/form.php');
 
