@@ -12,14 +12,23 @@ document.addEventListener('click', function(event) {
 });
 
 //HOMEPAGE SLIDER
-var splide = new Splide( '.splide', {
-    perPage: 2,
-    type   : 'loop',
-    drag   : 'free',
-    snap   : true,
-} );
+const url = window.location.href;
+const urlParams = new URLSearchParams(url);
+console.log(urlParams.has('option'));
+console.log(urlParams.get('option') === 'home')
+if (urlParams.has('option') && urlParams.get('option') === 'home') {
 
-splide.mount();
+    var splide = new Splide('.splide', {
+        perPage: 2,
+        type: 'loop',
+        drag: 'free',
+        snap: true,
+    });
+
+    splide.mount();
+}
+
+
 
 //POPUP
 $(document).ready(function(){
