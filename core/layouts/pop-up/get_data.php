@@ -45,7 +45,7 @@ else{
     $successed_fields[] = 'email';
 }
 
-if($name === '' || !preg_match("/^[a-zA-Z\s\-]+$/", $name)){
+if($name === '' || !preg_match("/^[A-Za-zА-Яа-яĀāČčĒēĢģĪīĶķĻļŅņŌōŠšŪūŽž\s]+$/u", $name)){
     $error_fields[] = 'name';
     $message = "Incorrect name";
 }
