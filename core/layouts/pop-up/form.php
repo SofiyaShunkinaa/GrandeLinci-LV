@@ -67,7 +67,7 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
                     <label><?php echo $Lang['Form']['field']['chosen_pet'] ?>
                         <?php
                                 $data = json_encode($kittens);
-                                $opt = "<select id='catSelect' data-kittens='$data'  onchange='getKitId()'>";
+                                $opt = "<select id='catSelect' name='kit_id' data-kittens='$data'  onchange='getKitId()'>";
                                 foreach ($kittens as $kitten){
                                    $opt .= "<option value='{$kitten['id']}'>{$Lang['Kittens'][$kitten['id']]['name']}</option>";
                                 }
@@ -96,10 +96,8 @@ $kittenId = isset($_GET['id']) ? $_GET['id'] : 1;
         var catId = document.getElementById('catSelect').value;
         var catImage = document.getElementById('catImage');
 
-        // Находим информацию о выбранном котенке
         var selectedCat = <?php echo json_encode($kittens); ?>.find(cat => cat.id == catId);
 
-        // Устанавливаем путь к изображению выбранного котенка
         catImage.backgroundImage = selectedCat.img_path;
     }
 </script>
