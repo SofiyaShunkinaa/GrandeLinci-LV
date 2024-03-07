@@ -1,4 +1,6 @@
 <?php
+//include("lang/lang_ru.php");
+//echo $Lang['Form']['errors']['q2'];
 
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -15,7 +17,6 @@ $message = '';
 
 if($q2 === ''){
     $error_fields[] = 'q2';
-    $message = "Empty field 2";
 }
 else{
     $successed_fields[] = 'q2';
@@ -23,7 +24,7 @@ else{
 
 if($q1 === ''){
     $error_fields[] = 'q1';
-    $message = "Empty field 1";
+    //$message = $Lang['Form']['errors']['q1'];
 }
 else{
     $successed_fields[] = 'q1';
@@ -31,7 +32,7 @@ else{
 
 if($phone === '' || !preg_match("/^(\+?\d{1,3}\s?)?\(?\d{1,4}\)?[\s.-]?\d{1,4}[\s.-]?\d{1,9}$/", $phone)){
     $error_fields[] = 'phone';
-    $message = "Incorrect phone";
+    //$message = $Lang['Form']['errors']['phone'];
 }
 else{
     $successed_fields[] = 'phone';
@@ -39,7 +40,7 @@ else{
 
 if($email === '' || !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i", $email)){
     $error_fields[] = 'email';
-    $message = "Incorrect email";
+    //$message = $Lang['Form']['errors']['email'];
 }
 else{
     $successed_fields[] = 'email';
@@ -47,7 +48,7 @@ else{
 
 if($name === '' || !preg_match("/^[A-Za-zА-Яа-яĀāČčĒēĢģĪīĶķĻļŅņŌōŠšŪūŽž\s]+$/u", $name)){
     $error_fields[] = 'name';
-    $message = "Incorrect name".$_SESSION['NowLang'];
+    //$message = $Lang['Form']['errors']['phone'];
 }
 else{
     $successed_fields[] = 'name';
@@ -55,15 +56,12 @@ else{
 
 
 if(empty($error_fields)){
-
     $response = [
         "status" => true,
         "successed" => $successed_fields
     ];
 
     echo json_encode($response);
-
-
 }
 else{
     $response = [
@@ -71,7 +69,8 @@ else{
         "type" => 1,
         "field" => $message,
         "fields" => $error_fields,
-        "successed" => $successed_fields
+        "successed" => $successed_fields,
+        "lang" => $_SESSION['NowLang']
     ];
 
     echo json_encode($response);
