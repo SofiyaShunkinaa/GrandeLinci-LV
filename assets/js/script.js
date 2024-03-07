@@ -13,7 +13,6 @@ document.addEventListener('click', function(event) {
 
 //HOMEPAGE SLIDER
 const url = window.location.href;
-console.log(url.includes('home'))
 if (url.includes('home')) {
     var splide = new Splide('.splide', {
         perPage: 2,
@@ -72,7 +71,8 @@ $('input').on('blur', function() {
         q2 = $('input[name="q2"]').val(),
         q3 = $('input[name="q3"]').val(),
         q4 = $('input[name="q4"]').val(),
-        kit_id = $('#catSelect').val();
+        kit_id = $('#catSelect').val(),
+        lang = ''
 
     $.ajax({
         url: 'core/layouts/pop-up/get_data.php',
@@ -87,6 +87,7 @@ $('input').on('blur', function() {
             q3: q3,
             q4: q4,
             kit_id: kit_id,
+            lang: lang
         },
         success(data) {
             if (data.status) {
@@ -123,55 +124,12 @@ $('input').on('blur', function() {
                 });
                 $('#submit-btn').prop('disabled', true);
 
-
+                console.log(data.lang)
 
             }
         }
     });
 });
-
-// BUTTON SUBMIT
-// $('#submit-btn').on('click', function(event) {
-//     event.preventDefault();
-//     var name = $('input[name="name"]').val(),
-//         email = $('input[name="email"]').val(),
-//         phone = $('input[name="phone"]').val(),
-//         q1 = $('input[name="q1"]').val(),
-//         q2 = $('input[name="q2"]').val(),
-//         q3 = $('input[name="q3"]').val(),
-//         q4 = $('input[name="q4"]').val(),
-//         kit_id = $('#catSelect').val();
-//     console.log("sooo")
-//
-//     $.ajax({
-//         url: 'core/layouts/pop-up/insert.php',
-//         type: 'POST',
-//         dataType: 'json',
-//         data: {
-//             email: email,
-//             name: name,
-//             phone: phone,
-//             q1: q1,
-//             q2: q2,
-//             q3: q3,
-//             q4: q4,
-//             kit_id: kit_id,
-//         },
-//         error(xhr, status, error) {
-//         console.error("AJAX error:", error);
-//     },
-//         success(data){
-//             if (data.status){
-//                 alert("Success!")
-//             }
-//             else{
-//                 alert("Fail!")
-//             }
-//         }
-//     });
-//
-// });
-//
 
 
 // BUTTON CLEAR
