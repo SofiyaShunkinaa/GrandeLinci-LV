@@ -47,7 +47,7 @@ else{
 
 if($name === '' || !preg_match("/^[A-Za-zА-Яа-яĀāČčĒēĢģĪīĶķĻļŅņŌōŠšŪūŽž\s]+$/u", $name)){
     $error_fields[] = 'name';
-    $message = "Incorrect name";
+    $message = "Incorrect name".$_SESSION['NowLang'];
 }
 else{
     $successed_fields[] = 'name';
