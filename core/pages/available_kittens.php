@@ -43,6 +43,17 @@ $catsArray[] = $db->data;
 while ($row = $db->fetch()) {
     $catsArray[] = $row;
 }
+if(isset($_GET['kit-name'])&&($_GET['kit-name'] !== '')){
+    $searchResult = [];
+    foreach($catsArray as $kitt){
+        if(strpos($Lang['Kittens'][$kitt['id']]['name'], $_GET['kit-name']) !== false){
+            $searchResult[] = $kitt;
+        }
+    }
+
+    $catsArray = $searchResult;
+    $pagesCount = 1;
+}
 //var_dump($catsArray);
 
 // IF PAGE NOT EXISTS
@@ -66,7 +77,15 @@ $db->stop();
                     <option value="<?php echo $Lang['sex_filter'][2][1]; ?>" <?php if($filter == $Lang['sex_filter'][2][1]){echo "selected";}?>><?php echo $Lang['sex_filter'][2][0]; ?></option>
                 </select>
             </form>
-            <div id="result"></div>
+            <form id="search-form" method="get">
+                <div class="input-group mb-3">
+                    <input type="text" name="kit-name" class="form-control" placeholder="">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary btn-search" type="submit">Поиск</button>
+                    </div>
+                </div>
+            </form>
+
         </div>
 
         <div class="kittens-section">
