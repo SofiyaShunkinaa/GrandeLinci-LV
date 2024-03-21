@@ -1092,3 +1092,21 @@ form div:nth-of-type(4) div{
 .success-field{
     border: 2px solid #3dc901;
 }
+
+.sex-filter-switcher{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-search{
+    height: 100%;
+    border-radius: 0 17px 17px 0 !important;
+    background: var(--a-dark-blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+#search-form input{
+    border-radius: 17px 0 0 17px;
+}
