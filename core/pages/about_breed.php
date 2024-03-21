@@ -60,13 +60,13 @@ $db->stop();
 
 </div>
 
-<div class="bg-1"><img src="/assets/images/bg-right-1.png"></div>
-<div class="bg-2"><img src="/assets/images/bg-left.png"></div>
-<div class="bg-3"><img src="/assets/images/trace-bg-3.png"></div>
-<div class="bg-4"><img src="/assets/images/trace-bg-2.png"></div>
-<div class="bg-6"><img src="/assets/images/trace-bg-2.png"></div>
-<div class="bg-8"><img src="/assets/images/trace-bg-2.png"></div>
-<div class="bg-5"><img src="/assets/images/trace-bg-1.png"></div>
-<div class="bg-7"><img src="/assets/images/trace-bg-1.png"></div>
+<div class="bg-1"><img src="/assets/images/bg-right-1.webp"></div>
+<div class="bg-2"><img src="/assets/images/bg-left.webp"></div>
+<div class="bg-3"><img src="/assets/images/trace-bg-3.webp"></div>
+<div class="bg-4"><img src="/assets/images/trace-bg-2.webp"></div>
+<div class="bg-6"><img src="/assets/images/trace-bg-2.webp"></div>
+<div class="bg-8"><img src="/assets/images/trace-bg-2.webp"></div>
+<div class="bg-5"><img src="/assets/images/trace-bg-1.webp"></div>
+<div class="bg-7"><img src="/assets/images/trace-bg-1.webp"></div>
 
 

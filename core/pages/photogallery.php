@@ -26,7 +26,7 @@ $db->stop();
         <div class="image-container">
             <?php
             foreach ($Photos[$alias]['sec1'] as $image){
-                echo "<div><img src='{$image}.png' alt='cat'></div>";
+                echo "<div><img src='{$image}.webp' alt='cat'></div>";
             }
             ?>
         </div>
@@ -40,7 +40,7 @@ $db->stop();
         <div class="image-container">
             <?php
             foreach ($Photos[$alias]['sec2'] as $image){
-                echo "<div><img src='{$image}.png' alt='cat'></div>";
+                echo "<div><img src='{$image}.webp' alt='cat'></div>";
             }
             ?>
         </div>
@@ -54,15 +54,15 @@ $db->stop();
         <div class="image-container">
             <?php
             foreach ($Photos[$alias]['sec3'] as $image){
-                echo "<div><img src='{$image}.png' alt='cat'></div>";
+                echo "<div><img src='{$image}.webp' alt='cat'></div>";
             }
             ?>
         </div>
     </div>
 
 </div>
-<div class="bg-1"><img src="/assets/images/bg-left.png"></div>
-<div class="bg-2"><img src="/assets/images/trace-bg-1.png"></div>
-<div class="bg-3"><img src="/assets/images/trace-bg-2.png"></div>
-<div class="bg-4"><img src="/assets/images/bg-right-1.png"></div>
-<div class="bg-5"><img src="/assets/images/bg-right-2.png"></div>
+<div class="bg-1"><img src="/assets/images/bg-left.webp"></div>
+<div class="bg-2"><img src="/assets/images/trace-bg-1.webp"></div>
+<div class="bg-3"><img src="/assets/images/trace-bg-2.webp"></div>
+<div class="bg-4"><img src="/assets/images/bg-right-1.webp"></div>
+<div class="bg-5"><img src="/assets/images/bg-right-2.webp"></div>

@@ -70,4 +70,4 @@ $db->stop();
     </div>
 </div>
 
-<div class="bg"><img src="/assets/images/bg-left.png"></div>
+<div class="bg"><img src="/assets/images/bg-left.webp"></div>

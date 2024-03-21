@@ -60,11 +60,11 @@ $db->stop();
             <section class="splide" aria-label="Splide">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide"><img src="/assets/images/cat2.png" alt="cat"></li>
-                        <li class="splide__slide"><img src="/assets/images/cat3.png" alt="cat"></li>
-                        <li class="splide__slide"><img src="/assets/images/cat4.png" alt="cat"></li>
-                        <li class="splide__slide"><img src="/assets/images/cat5.png" alt="cat"></li>
-                        <li class="splide__slide"><img src="/assets/images/cat6.png" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat2.webp" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat3.webp" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat4.webp" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat5.webp" alt="cat"></li>
+                        <li class="splide__slide"><img src="/assets/images/cat6.webp" alt="cat"></li>
                     </ul>
                 </div>
             </section>
@@ -129,10 +129,10 @@ $db->stop();
 
 
 </div>
-<div class="bg-1"><img src="/assets/images/bg-left.png"></div>
-    <div class="bg-2"><img src="/assets/images/bg-left-2.png"></div>
-    <div class="bg-3"><img src="/assets/images/trace-bg-1.png"></div>
-    <div class="bg-4"><img src="/assets/images/trace-bg-4.png"></div>
+<div class="bg-1"><img src="/assets/images/bg-left.webp"></div>
+    <div class="bg-2"><img src="/assets/images/bg-left-2.webp"></div>
+    <div class="bg-3"><img src="/assets/images/trace-bg-1.webp"></div>
+    <div class="bg-4"><img src="/assets/images/trace-bg-4.webp"></div>
 </div>
 
 <?php require($_SERVER['DOCUMENT_ROOT'].'/core/layouts/pop-up/form.php');
